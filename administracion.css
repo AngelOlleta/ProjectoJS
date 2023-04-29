@@ -1,0 +1,151 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(240, 240, 240);
+    /* font-family: 'Bebas Neue', cursive; */
+    font-family: 'Sen', sans-serif;;
+}
+
+
+#headermain{
+    background-color: black;
+    color: white;
+    font-size: medium;
+}
+
+.icono img{
+    width: 9%;
+    position: absolute;
+    margin-top: 6px;
+
+}
+
+
+#titulomain{
+    font-size: xx-large;
+    margin-top: 10px;
+    color: rgb(93, 93, 93);
+}
+
+.logomain{
+    width: 50px;
+    margin-right: 10px;
+}
+
+#contenedorDeSeccion{
+    background-color: rgb(255, 255, 255);
+}
+
+#contenedorDeCards{
+    height: 300px;
+}
+
+.card-title{
+    text-shadow: 3px  4px 8px black;
+    font-size: 60px;
+    text-align: center;
+
+}
+
+.tarjeta{
+
+  background-size: cover;
+  background-position: center;
+  width: 27rem;
+  height: 25rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  box-shadow: 5px 7px 23px black;
+  border-radius:2px ;
+  background-size: 140%;
+}
+
+.tarjeta:hover{
+    cursor: pointer;
+    background-size: 160%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid rgb(0, 255, 195);
+    transition-duration: 250ms;
+  }
+  
+  #tarjeta2{
+    background-size: 155%;
+  }
+
+  #tarjeta2:hover{
+    background-size: 175%;
+  }
+
+
+
+
+#tarjeta1{
+    background-image: url('./img/out.png');
+}
+
+#tarjeta2{
+    background-image: url('./img/out (1).png');
+}
+
+#tarjeta3{
+    background-image: url('./img/out (2).png');
+}
+
+.tarjeta h3{
+    color: white;
+    text-shadow: 5px 7px 7px black;
+    font-size: 350%;
+}
+
+
+#seccionDeProductos{
+    display: flex;
+    justify-content: space-evenly;
+}
+#contenedorDeSeccion{
+    border-top: 1px solid rgb(223, 220, 220)
+}
+/* SECCION TABLAS*/
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 88%;
+    margin-right: 6%;
+    margin-left: 6%;
+    margin-bottom: 6%;
+    box-shadow: 5px 7px 23px black;
+  }
+
+  td, th {
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 8px;
+  }
+
+th{
+    background-color: rgb(200, 201, 201);
+    border: rgb(217, 217, 217) solid 1px;
+}
+
+.listaseccion{
+    border-top: 1px rgb(219, 218, 218) solid;
+}
+
+.tituloproductos h2{
+    color: rgb(47, 255, 213);
+    
+}
+
+.tituloproductos h3{
+    color: rgb(47, 255, 213);
+}
+
+/*fin de tablas*/
+
+/* footer*/
+#footer{
+    border-top: 1px rgb(225, 224, 224) solid;
+}
+
