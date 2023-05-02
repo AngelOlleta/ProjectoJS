@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Video de fondo con texto superpuesto</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			background: #000;
+			color: #fff;
+			font-family: Arial, sans-serif;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		video {
+			position: fixed;
+			top: 0;
+			left: 0;
+			min-width: 100%;
+			min-height: 100%;
+			z-index: -1;
+		}
+
+		h1 {
+			font-size: 3rem;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<video src="./Imagenes/acercaDeNosotrosImg/" autoplay loop muted></video>
+	<h1>Texto superpuesto en el video</h1>
+</body>
+</html>
