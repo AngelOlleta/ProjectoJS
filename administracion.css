@@ -115,7 +115,7 @@ table {
     margin-right: 6%;
     margin-left: 6%;
     margin-bottom: 6%;
-    box-shadow: 5px 7px 23px black;
+    box-shadow: 5px 5px 18px rgb(83, 83, 83);
   }
 
   td, th {
@@ -149,3 +149,16 @@ th{
     border-top: 1px rgb(225, 224, 224) solid;
 }
 
+#enviarproducto{
+    position: relative;
+    top: 5px;
+    margin-bottom: 7px;
+    color: rgb(65, 65, 65);
+    border: 1px rgb(99, 99, 99) solid;
+    border-radius: 4px;
+}
+
+#enviarproducto:hover{
+    color: rgb(0, 158, 158);
+    background-color: rgb(222, 222, 222);
+}
