@@ -115,7 +115,7 @@ table {
     margin-right: 6%;
     margin-left: 6%;
     margin-bottom: 6%;
-    box-shadow: 5px 7px 23px black;
+    box-shadow: 5px 5px 18px rgb(83, 83, 83);
   }
 
   td, th {
