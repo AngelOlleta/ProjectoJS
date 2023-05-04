@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <title>Flex</title>
+    <link rel="icon" href="./Imagenes/iconoLogo.png">
+    <script src="https://kit.fontawesome.com/cfd100b802.js" crossorigin="anonymous"></script>
+</head>
+<body class="" >
+  <header>
+        <div class="container-fluid text-center" style="background-color: rgb(0, 0, 0); color: white;">
+            <p>Envio Gratis a patir de $30.000</p>
+        </div>
+  </header>
+      <!-- Navbar-->
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">
+        <img src="./Imagenes/logo.png"  alt="logo" width="100" height="50"/>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul
+          class="navbar-nav mx-auto my-2 my-lg-0 navbar-nav"
+          style="--bs-scroll-height: 100px"
+        >
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./nosotros.html"> Mujer
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contacto.html">Hombre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./registro.html">Niños</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              >Sale</a
+            >
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="./categoriaSillon.html"
+                  >Outlet</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="./categoriaButaca.html"
+                  >Verano 22/23</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="./categoriaMesa.html"
+                  >Invierno 22</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">Acerca de nosotros</a>
+          </li>
+        </ul>
+        <form class="d-flex justify-content-end p-2" role="search" >
+          <a data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              fill="secundaryColor"
+              class="bi bi-search p-1"
+              viewBox="0 0 18 18"
+            >
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+              />
+            </svg>
+          </a>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Busqueda
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body"><input type="text" maxlength="50" minlength="3"></div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Buscar
+                  </button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="./carrito.html"
+            ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="secundaryColor" class="bi bi-person p-1" viewBox="0 0 16 16">
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+              </svg>
+          </a>
+          <a href="./login.html"
+            ><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="secundaryColor" class="bi bi-bag p-1" viewBox="0 0 16 16">
+                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+              </svg>
+          </a>
+        </a>
+        <a href="."
+          ><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="secundaryColor" class="bi bi-suit-heart p-1" viewBox="0 0 16 16">
+            <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+          </svg>
+        </a>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <section class="container-fluid col-12 h-100"> 
+    
+    <div class="container-fluid d-lg-none ">
+      <div class="row justify-content-between ">
+        <div class="col-10">
+          <span class="fw-bold">Mujer · Fútbol</span>
+        </div>
+        
+        <div class=" col-2 ">
+          <i class="fa-sharp fa-regular fa-heart"></i>
+          25 
+        </div>
+      </div>
+      <h1  class="fs-3 fw-bolder mt-2  ">CAMISETA ALTERNATIVA SELECCION ARGENTINA FEMENINA 23</h1>
+      <div>
+        <h1 class=" fs-5 fw-bold "> $ 20.999 </h1>
+      </div>
+    </div>
+
+      
+    <div class="row ">
+
+      <section class="container-fluid  col-12 col-lg-8 ">
+        <div class="row">
+  
+          <img  class="col-12 col-lg-6 p-0" src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/938914be45474499ba08afa201047bd5_9366/Camiseta_Alternativa_Seleccion_Argentina_Femenina_23_Negro_HT4228_21_model.jpg" alt="">
+          <img class="col-12 col-lg-6 p-0" src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/aba25de3b19f491db8ecafa2010485ae_9366/Camiseta_Alternativa_Seleccion_Argentina_Femenina_23_Negro_HT4228_23_hover_model.jpg" alt="">
+          <img class="col-12 col-lg-6 p-0" src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/a3e5c68026ca49288f15afa201048d57_9366/Camiseta_Alternativa_Seleccion_Argentina_Femenina_23_Negro_HT4228_25_model.jpg" alt="">
+          <img class="col-12 col-lg-6 p-0" src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d2e1e71235174edf9423afa20104ba66_9366/Camiseta_Alternativa_Seleccion_Argentina_Femenina_23_Negro_HT4228_01_laydown.jpg" alt="">
+        </div>
+
+
+        <div class="d-none d-lg-block">
+          <p class="row d-flex justify-content-center mt-4 p-0">
+              
+            <button class="btn btn-outline-info col-12 text-black  " type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Descripcion</button>
+            
+          </p>
+          <div class="row">
+  
+            <div class="collapse multi-collapse" id="multiCollapseExample2">
+              <div class="card card-body  ">
+                <div class="d-flex align-items-center">
+
+                  <div class=" col-6 p-1">
+                    <span class="fs-5 fw-bold"> UNA CAMISETA PARA HINCHAS INSPIRADA EN LOS PAISAJES DE ARGENTINA Y HECHA CON MATERIALES RECICLADOS. </span>
+                    <p>Desde su soleado norte hasta su helado sur, Argentina tiene belleza natural en abundancia. Reflejando los variados paisajes y vistas majestuosas del país, los colores en esta camiseta alternativa adidas se encargan de que siempre te destaques al momento de apoyar a tu selección. Creada para envolver a los hinchas del equipo en comodidad, esta camiseta incorpora tecnología de absorción AEROREADY y un escudo tejido.</p>
+                    <p>Este producto, hecho con materiales 100% reciclados, representa solo una de nuestras soluciones para acabar con los residuos plásticos.</p>
+                  </div>
+                  <div class="col-6 p-0">
+                    <img  class="col-12" src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/a3e5c68026ca49288f15afa201048d57_9366/Camiseta_Alternativa_Seleccion_Argentina_Femenina_23_Negro_HT4228_25_model.jpg" alt="" srcset="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <p class="row d-flex justify-content-center ">
+            <button class="btn btn-outline-info col-12 text-black "  type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample2">Detalles</button>
+          </p>
+          <div class="row">
+            
+            <div class="col">
+              <div class="collapse multi-collapse" id="multiCollapseExample3">
+                <div class="card card-body">
+                  <ul>
+                    <li>Ajuste clásico</li>
+                    <li>Ajuste clásico</li>
+                    <li>Tejido entrelazado 100% poliéster reciclado</li>
+                    <li>AEROREADY</li>
+                    <li>Paneles de malla bajo los brazos</li>
+                    <li>Puños acanalados</li>
+                    <li>Dobladillo trasero alargado</li>
+                    <li>Escudo de la Selección Argentina tejido</li>
+                    <li>Color del artículo: Black / Trace Orange / Clear Mint</li>
+                    <li>Número de artículo: HT4228</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </section>
+  
+      <div class="p-4 col-12 col-lg-4 position-relative ">
+        <div class="position-sticky top-0 end-0">
+
+          <div class=" d-none d-lg-block ">
+            <div class="row justify-content-between ">
+              <div class="col-10">
+                <span class="fw-bold">Mujer · Fútbol</span>
+              </div>
+              
+              <div class=" col-2 ">
+                <i class="fa-sharp fa-regular fa-heart"></i>
+                25 
+              </div>
+            </div>
+            <h1  class="fs-3 fw-bolder mt-2  ">CAMISETA ALTERNATIVA SELECCION ARGENTINA FEMENINA 23</h1>
+            <div>
+              <h1 class=" fs-5 fw-bold "> $ 20.999 </h1>
+            </div>
+          </div>
+          <div class="">
+            <span class="fs-5 fw-bold">NO APLICAN CAMBIOS, DEVOLUCIONES Y DESCUENTOS</span>
+            <p>Si este artículo es personalizado, no entra en nuestra política de cambios y devoluciones. Además no aplica ningún descuento.</p>
+            <a href="./error404.html" class="link-dark">Conoce nuestra politica de cambios y devoluciones</a>
+          </div>
+          <div></div>
+          <div class="mt-4">
+            <span class="fs-5 fw-bold ">DESBLOQUEA ESTE LANZAMIENTO</span>
+            <p class="mt-3">Disponible en exclusiva para miembros registrate y desbloqueá lo mejor de <a class="link-dark" href="./error404.html"> FLEX </a> </p>
+          </div>
+          <div>
+            <span class="fs- fw-bolder ">Talles</span>
+            <br>
+            <br>
+  
+            <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" >
+            <label class="btn btn-outline-info" for="option1">S</label>
+
+            <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+            <label class="btn btn-outline-info" for="option2">M</label>
+
+            <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off" >
+            <label class="btn btn-outline-info" for="option3">L</label>
+
+            <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
+            <label class="btn btn-outline-info" for="option4">XL</label>
+    
+    
+          </div>
+    
+            <br>
+  
+          <div class=" d-flex  justify-content-center">
+            <button type="reset" src="./error404.html" class="btn btn-info d-flex justify-content-between col-12 ">
+              <span>UNETE A FLEX </span>
+              <span> <i class="fa-solid fa-arrow-right fa-beat"></i></span>
+            </button>
+          </div>
+          <div class=" d-lg-none">
+            <p class="row d-flex justify-content-center mt-4 p-0">
+              
+              <button class="btn btn-outline-info col-12 text-black  " type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Descripcion</button>
+              
+            </p>
+            <div class="row">
+              <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample2">
+                  <div class="card card-body ">
+                    <div class=" col-12 col-lg-6">
+                      <span class="fs-5 fw-bold"> UNA CAMISETA PARA HINCHAS INSPIRADA EN LOS PAISAJES DE ARGENTINA Y HECHA CON MATERIALES RECICLADOS. </span>
+                      <p>Desde su soleado norte hasta su helado sur, Argentina tiene belleza natural en abundancia. Reflejando los variados paisajes y vistas majestuosas del país, los colores en esta camiseta alternativa adidas se encargan de que siempre te destaques al momento de apoyar a tu selección. Creada para envolver a los hinchas del equipo en comodidad, esta camiseta incorpora tecnología de absorción AEROREADY y un escudo tejido.</p>
+                      <p>Este producto, hecho con materiales 100% reciclados, representa solo una de nuestras soluciones para acabar con los residuos plásticos.</p>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                      <img  class="col-12" src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/a3e5c68026ca49288f15afa201048d57_9366/Camiseta_Alternativa_Seleccion_Argentina_Femenina_23_Negro_HT4228_25_model.jpg" alt="" srcset="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <p class="row d-flex justify-content-center ">
+              <button class="btn btn-outline-info col-12 text-black " type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample2">Detalles</button>
+            </p>
+            <div class="row">
+              
+              <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample3">
+                  <div class="card card-body">
+                    <ul>
+                      <li>Ajuste clásico</li>
+                      <li>Ajuste clásico</li>
+                      <li>Tejido entrelazado 100% poliéster reciclado</li>
+                      <li>AEROREADY</li>
+                      <li>Paneles de malla bajo los brazos</li>
+                      <li>Puños acanalados</li>
+                      <li>Dobladillo trasero alargado</li>
+                      <li>Escudo de la Selección Argentina tejido</li>
+                      <li>Color del artículo: Black / Trace Orange / Clear Mint</li>
+                      <li>Número de artículo: HT4228</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+
+    
+  </section>
+
+  
+
+<!-- Footer -->
+  
+  
+
+  <div class="container text-center">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md-2 mb-1 ">
+          <h5>Te Ayudamos</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Mensaje de Whatsapp</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">+54 9 3815 78-3030</a></li>
+            <br>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Mandanos un mail</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">infoar@flex.com</a></li>
+           
+          </ul>
+        </div>
+  
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Tienda on line</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contacto</a></li>
+            <li class="nav-item mb-2"><a href="./error404.html" class="nav-link p-0 text-body-secondary">Preguntas Frecuentes</a></li>
+            <li class="nav-item mb-2"><a href="./error404.html" class="nav-link p-0 text-body-secondary">Cambios y devoluciones</a></li>
+            <li class="nav-item mb-2"><a href="./error404.html" class="nav-link p-0 text-body-secondary">Medios de pago</a></li>
+            <li class="nav-item mb-2"><a href="./error404.html" class="nav-link p-0 text-body-secondary">Informacion de envio</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Somos Flex</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-body-secondary">Sobre Flex</a></li>
+            <li class="nav-item mb-2"><a href="./error404.html" class="nav-link p-0 text-body-secondary">Trabaja con nosotros</a></li>
+            <li class="nav-item mb-2"><a href="./error404.html" class="nav-link p-0 text-body-secondary">Termino y Condiciones</a></li>
+            <li class="nav-item mb-2"><a href="./error404.html" class="nav-link p-0 text-body-secondary">Politica de Privacidad</a></li>
+            
+          </ul>
+        </div>
+  
+        <div class="col-md-5 offset-md-1 mb-3">
+          <form>
+            <br>
+            <h5>Suscribiste  newsletter</h5>
+            <p>Completa tus datos y obtene 15% en tu primera compra </p>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+              <label for="newsletter1" class="visually-hidden">Email</label>
+              <input id="newsletter1" type="email" class="form-control" maxlength="50"  placeholder="Email address" required>
+              <button class="btn btn-dark" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top text-center">
+        <p>&copy; 2023 Company, Inc. All rights reserved.</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+
+<!-- JS bootstrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+crossorigin="anonymous"></script>  
+<script src="./principal.js"></script>
+</body>
+</html>
