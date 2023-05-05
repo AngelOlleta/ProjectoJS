@@ -162,3 +162,46 @@ th{
     color: rgb(0, 158, 158);
     background-color: rgb(222, 222, 222);
 }
+
+/* RESPONSIVE */
+
+@media (max-width:1212px){
+    .tarjeta{
+        width: 20rem;
+        height: 18rem;
+        background-size: 140%;
+    }
+}
+
+@media (max-width:900px){
+    .tarjeta{
+        width: 15rem;
+        height: 13rem;
+        background-size: 140%;
+        font-size: 15px;
+    }
+}
+
+@media (max-width:720px){
+    .tarjeta{
+        width: 18rem;
+        height: 16rem;
+        background-size: 140%;
+        font-size: 15px;
+    }
+}
+
+@media (max-width:720px){
+    #seccionDeProductos{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media (max-width:760px){
+.icono a img{
+    width: 100px;
+    margin-top: 130px;
+}
+}
