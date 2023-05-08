@@ -16,3 +16,15 @@ añadirBoton.addEventListener(`click`, (e) => {
 
 
 });
+
+const { v4: uuidv4 } = require('uuid');
+
+// Genera un código único de 5 dígitos utilizando la librería uuid
+function generateUniqueCode() {
+  var code = "#" + uuidv4().slice(0, 5);
+  return code;
+}
+
+// Llama a la función para generar el código
+var code = generateUniqueCode();
+console.log(code);
