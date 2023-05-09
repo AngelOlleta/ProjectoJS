@@ -9,6 +9,8 @@ const añadirBoton = document.getElementById(`enviarproducto`)
 const formulario = document.getElementById(`formularioproducto`)
 const tbodylistado = document.getElementById(`bodytexto`)
 
+
+
 añadirBoton.addEventListener(`click`, (e) => {
     e.preventDefault();
 
@@ -16,12 +18,15 @@ añadirBoton.addEventListener(`click`, (e) => {
     const precio = precioDeProducto.value
     const descripcion = descripcionDeProducto.value
     const codigo = codigoDeProducto.value
-    const producto = { nombre, precio, descripcion };
+    // const codigo = codigoDeProducto.value
+ 
+    const producto = { codigo, nombre, precio, descripcion };
     productos.push(producto);
     console.log(productos);
     localStorage.setItem(`productos`, JSON.stringify(productos));
     mostrarProd();
     formulario.reset();
+    uuidv4();
     
 });
 
@@ -32,7 +37,7 @@ function mostrarProd() {
   productos.forEach((producto) => {
     const tr = document.createElement(`tr`);
     tr.innerHTML = `
-    <td>codigo</td>
+    <td>#${codigoRandom}</td>
     <td>${producto.nombre}</td>
     <td>${producto.precio}</td>
     <td>${producto.descripcion}</td>`;
@@ -41,21 +46,14 @@ function mostrarProd() {
   });
 }
 
-function generateUniqueCode() {
-  const digitos = "0123456789";
-  let codigoRandom = "#";
-  
-  for (var i = 0; i < 5; i++) {
-    codigoRandom += digitos[Math.floor(Math.random() * 10)];
-  }
-  
-  return codigoRandom;
+//CODIGO RANDOM
+const codigoRandom = uuidv4();
+console.log("#"+codigoRandom);
+function uuidv4() {
+  return 'xxxxxx'.replace(/[x]/g, function(c) {
+    const r = Math.random() *9 | 0;
+    const v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(+16);
+});
 }
-let codigoGenerados = new Set();
-
-let codigoRandom = generateUniqueCode();
-while (codigoGenerados.has(codigoRandom)) {
-  codigoRandom = generateUniqueCode();
-}
-codigoGenerados.add(codigoRandom);
-console.log(codigoRandom);
+document.getElementById("codigo").value ="#"+ codigoRandom;
