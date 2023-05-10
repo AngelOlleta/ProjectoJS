@@ -10,9 +10,8 @@ const añadirBoton = document.getElementById(`enviarproducto`)
 const formulario = document.getElementById(`formularioproducto`)
 const tbodylistado = document.getElementById(`bodytexto`)
 const tbodylistadoEliminar = document.getElementById(`bodytextoEliminar`)
-// const codigo = uuidv4();
-//     console.log("#"+codigo);
 
+//FUNCION AÑADIR
 añadirBoton.addEventListener(`click`, (e) => {
     e.preventDefault();
 
@@ -30,7 +29,7 @@ añadirBoton.addEventListener(`click`, (e) => {
     formulario.reset();
 });
 
-
+//FUNCION MOSTRAR
 function mostrarProd() {
   listado.querySelector("tbody").innerHTML = ""
 
@@ -56,7 +55,7 @@ function mostrarProdEnEliminar() {
     <td>${producto.nombre}</td>
     <td>${producto.precio}</td>
     <td>${producto.descripcion}</td>
-    <td><button>Eliminar</button></td>`;
+    <td><button id="EliminarProd">Eliminar</button></td>`;
     
     tbodylistadoEliminar.appendChild(tr);
 
@@ -73,3 +72,5 @@ function uuidv4() {
 });
 
 }
+
+//FUNCION ELIMINAR
