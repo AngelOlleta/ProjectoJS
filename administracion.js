@@ -8,8 +8,7 @@ const codigoDeProducto = document.getElementById(`codigo`)
 const añadirBoton = document.getElementById(`enviarproducto`)
 const formulario = document.getElementById(`formularioproducto`)
 const tbodylistado = document.getElementById(`bodytexto`)
-
-
+// const codigo = uuidv4();
 
 añadirBoton.addEventListener(`click`, (e) => {
     e.preventDefault();
@@ -18,13 +17,12 @@ añadirBoton.addEventListener(`click`, (e) => {
     const precio = precioDeProducto.value
     const descripcion = descripcionDeProducto.value
     const codigo = uuidv4();
- 
     const producto = { codigo, nombre, precio, descripcion };
     productos.push(producto);
     console.log(productos);
     localStorage.setItem(`productos`, JSON.stringify(productos));
+    console.log("#"+codigo);
     mostrarProd();
-    console.log(codigo)
     formulario.reset();
 });
 
@@ -35,7 +33,7 @@ function mostrarProd() {
   productos.forEach((producto) => {
     const tr = document.createElement(`tr`);
     tr.innerHTML = `
-    <td>#${codigoRandom}</td>
+    <td>#${producto.codigo}</td>
     <td>${producto.nombre}</td>
     <td>${producto.precio}</td>
     <td>${producto.descripcion}</td>`;
@@ -51,5 +49,5 @@ function uuidv4() {
     const v = c == 'x' ? r : (r & 0x3 | 0x8);
     return v.toString(+16);
 });
+
 }
-document.getElementById("codigo").value ="#"+codigo;
