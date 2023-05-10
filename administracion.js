@@ -9,6 +9,7 @@ const añadirBoton = document.getElementById(`enviarproducto`)
 const formulario = document.getElementById(`formularioproducto`)
 const tbodylistado = document.getElementById(`bodytexto`)
 // const codigo = uuidv4();
+//     console.log("#"+codigo);
 
 añadirBoton.addEventListener(`click`, (e) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ añadirBoton.addEventListener(`click`, (e) => {
     productos.push(producto);
     console.log(productos);
     localStorage.setItem(`productos`, JSON.stringify(productos));
-    console.log("#"+codigo);
+
     mostrarProd();
     formulario.reset();
 });

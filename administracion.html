@@ -36,10 +36,10 @@
   <!-- BOTONES AÑADIR EDITAR ELIMINAR -->
   <div class="container-fluid pt-5 pb-5" id="contenedorDeSeccion">
     <section id="seccionDeProductos">
-      <div id="tarjeta1" class="tarjeta" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+      <div id="tarjeta1" class="tarjeta" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <h3>Agregar<br> un<br> Producto</h3>
       </div>
-      <div id="tarjeta2" class="tarjeta">
+      <div id="tarjeta2" class="tarjeta"  data-bs-toggle="modal" data-bs-target="#modalEliminar">
         <h3>Eliminar<br> un<br> Producto</h3>
       </div>
       <div id="tarjeta3" class="tarjeta">
@@ -159,8 +159,40 @@
               <label for="descripcion" class="col-form-label">Descripcion:</label>
               <textarea class="form-control focus-ring focus-ring-info" id="descripcion"></textarea>
             </div>
-            <input type="submit" id="enviarproducto" value="Guardar">
+            <input type="submit" id="enviarproducto" value="Guardar" onclick="">
           </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL ELIMINAR -->
+  <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Agrega un nuevo Producto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="listaseccion">
+            <div class="tituloproductos">
+              <h2 class="m-0 p-0 mt-4 text-center"><img src="./imagenes/iconoLogo.png" class="text-center logomain">Productos
+              </h2>
+              <h3 class="text-center m-0 p-0 mb-5">Listado</h3>
+            </div>
+            <table id="tablaDeProd">
+              <thead>
+                <tr>
+                  <th>#codigo</th>
+                  <th>Nombre</th>
+                  <th>Precio</th>
+                  <th>Descripcion</th>
+                </tr>
+              </thead>
+              <tbody id="bodytexto"></tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
