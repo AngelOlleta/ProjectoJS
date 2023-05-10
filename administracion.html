@@ -61,8 +61,8 @@
         <tr>
           <th>#codigo</th>
           <th>Nombre</th>
-          <th>Descripcion</th>
           <th>Precio</th>
+          <th>Descripcion</th>
         </tr>
       </thead>
       <tbody id="bodytexto"></tbody>
@@ -159,7 +159,7 @@
               <label for="descripcion" class="col-form-label">Descripcion:</label>
               <textarea class="form-control focus-ring focus-ring-info" id="descripcion"></textarea>
             </div>
-            <input type="submit" id="enviarproducto" value="Guardar">
+            <input type="submit" id="enviarproducto" value="Guardar" onclick="generateUniqueCode()">
           </form>
         </div>
       </div>

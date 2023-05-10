@@ -17,17 +17,15 @@ añadirBoton.addEventListener(`click`, (e) => {
     const nombre = nombreDeProducto.value
     const precio = precioDeProducto.value
     const descripcion = descripcionDeProducto.value
-    const codigo = codigoDeProducto.value
-    // const codigo = codigoDeProducto.value
+    const codigo = uuidv4();
  
     const producto = { codigo, nombre, precio, descripcion };
     productos.push(producto);
     console.log(productos);
     localStorage.setItem(`productos`, JSON.stringify(productos));
     mostrarProd();
+    console.log(codigo)
     formulario.reset();
-    uuidv4();
-    
 });
 
 
@@ -47,8 +45,6 @@ function mostrarProd() {
 }
 
 //CODIGO RANDOM
-const codigoRandom = uuidv4();
-console.log("#"+codigoRandom);
 function uuidv4() {
   return 'xxxxxx'.replace(/[x]/g, function(c) {
     const r = Math.random() *9 | 0;
@@ -56,4 +52,4 @@ function uuidv4() {
     return v.toString(+16);
 });
 }
-document.getElementById("codigo").value ="#"+ codigoRandom;
+document.getElementById("codigo").value ="#"+codigo;
