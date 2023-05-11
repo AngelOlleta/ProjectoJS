@@ -44,6 +44,8 @@ function mostrarProd() {
   });
 }
 
+
+
 function mostrarProdEnEliminar() {
   listadoEliminar.querySelector("tbody").innerHTML = ""
 
@@ -54,7 +56,7 @@ function mostrarProdEnEliminar() {
     <td>${producto.nombre}</td>
     <td>${producto.precio}</td>
     <td>${producto.descripcion}</td>
-    <td class="areaEliminar"><button id="eliminarProdBtn"><i class="fa-sharp fa-regular fa-circle-xmark fa-2xs" style="color: #ff0000;"></i></button></td>`;
+    <td class="eliminar" data-id="${producto.codigo}"><button id="eliminarProdBtn"><i class="fa-sharp fa-regular fa-circle-xmark fa-2xs" style="color: #ff0000;"></i></button></td>`;
     
     tbodylistadoEliminar.appendChild(tr);
 
@@ -72,4 +74,22 @@ function uuidv4() {
 
 }
 
+
+
 //FUNCION ELIMINAR
+listadoEliminar.addEventListener("click", (e) => {
+  if (e.target.classList.contains("eliminar")) {
+    const id = e.target.dataset.id;
+    const index = productos.findIndex((producto) => producto.codigo === id);
+    if (index !== -1) {
+      productos.splice(index, 1);
+
+      mostrarProd();
+      mostrarProdEnEliminar()
+    }
+  }
+
+
+
+
+});
