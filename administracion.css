@@ -205,3 +205,29 @@ th{
     margin-top: 130px;
 }
 }
+
+#eliminarProdBtn{
+    border: 0px;
+    margin: auto;
+    height: 35px;
+    width: 45%;
+    border-radius:50% ;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#eliminarProdBtn i{
+    font-size: xx-large;
+}
+
+#eliminarProdBtn:hover{
+    background-color: rgb(245, 203, 203);
+}
+
+.areaEliminar{
+    padding: 0px;
+    margin: 0px;
+    background-color: rgb(232, 231, 231);
+}

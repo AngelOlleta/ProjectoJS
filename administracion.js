@@ -5,7 +5,6 @@ const listadoEliminar = document.getElementById(`tablaDeProdEliminar`)
 const nombreDeProducto = document.getElementById(`nombre`)
 const precioDeProducto = document.getElementById(`precio`)
 const descripcionDeProducto = document.getElementById(`descripcion`)
-const codigoDeProducto = document.getElementById(`codigo`)
 const añadirBoton = document.getElementById(`enviarproducto`)
 const formulario = document.getElementById(`formularioproducto`)
 const tbodylistado = document.getElementById(`bodytexto`)
@@ -55,7 +54,7 @@ function mostrarProdEnEliminar() {
     <td>${producto.nombre}</td>
     <td>${producto.precio}</td>
     <td>${producto.descripcion}</td>
-    <td><button id="EliminarProd">Eliminar</button></td>`;
+    <td class="areaEliminar"><button id="eliminarProdBtn"><i class="fa-sharp fa-regular fa-circle-xmark fa-2xs" style="color: #ff0000;"></i></button></td>`;
     
     tbodylistadoEliminar.appendChild(tr);
 
