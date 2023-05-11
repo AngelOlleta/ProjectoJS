@@ -1,0 +1,8 @@
+
+.corazon {
+  cursor: pointer;
+}
+
+.corazon.favorito path {
+  fill: #ff2600;
+}

@@ -1,121 +1,110 @@
-localStorage.setItem("favorito", "añadir favorito")
-
-const nombre=document.querySelector("#productoNombre").textContent;
-const precio=document.getElementById("precioProducto").textContent;
-const imagen= document.getElementById("imagenProducto").src;
-const botonagregar=document.getElementById("agregar-favoritos");
-const favorito=document.getElementById("productosFavoritos");
-
-
 // cuando se pulsa en "agregar a favoritos"
-botonagregar.addEventListener("click",(e)=>{
+const botonAgregar = document.getElementById("botonAgregar");
+botonAgregar.addEventListener("click", (e) => {
   e.preventDefault();
-  swal ( "¡Genial! " , "¡Se agrego a favoritos! " , "success" );
+  const nombre = document.querySelector("#productoNombre").textContent;
+  const precio = document.getElementById("precioProducto").textContent;
+  const imagen = document.getElementById("imagenProducto").src;
+  // const favorito = document.getElementById("productosFavoritos");
+  const productoFavoritoLS =
+    JSON.parse(localStorage.getItem("favoritos")) || [];
+  const productoAgregado = productoFavoritoLS.find(
+    (favorito) => favorito.nombre === nombre
+  );
+  if (productoAgregado) {
+    return alert("el producto ya fue marcado como favorito ");
+  }
+  productoFavoritoLS.push({
+    nombre: nombre,
+    precio: precio,
+    imagen: imagen,
+  });
 
-let producto=[nombre,precio,imagen]
+  localStorage.setItem("favoritos", JSON.stringify(productoFavoritoLS));
+  // alert("se agrego el producto a favoritos");
+  swal("¡Genial! ", "¡Se agrego a favoritos! ", "success");
 
- localStorage.setItem("favorito:",producto,)
- const productoFavoritoLS=localStorage.getItem("favorito");
- productoFavoritoLS.innerHTML="Favorito: ${productoFavoritoLS}";
-})
+  productoFavoritoLS.innerHTML = "Favorito: ${productoFavoritoLS}";
+});
+const botonAgregar2 = document.getElementById("botonAgregar2");
+botonAgregar2.addEventListener("click", (e) => {
+  e.preventDefault();
+  const nombre = document.querySelector("#productoNombre2").textContent;
+  const precio = document.getElementById("precioProducto2").textContent;
+  const imagen = document.getElementById("imagenProducto2").src;
+  // const favorito = document.getElementById("productosFavoritos");
+  const productoFavoritoLS =
+    JSON.parse(localStorage.getItem("favoritos")) || [];
+  const productoAgregado = productoFavoritoLS.find(
+    (favorito) => favorito.nombre === nombre
+  );
+  if (productoAgregado) {
+    return alert("el producto ya fue marcado como favorito ");
+  }
+  productoFavoritoLS.push({
+    nombre: nombre,
+    precio: precio,
+    imagen: imagen,
+  });
 
- 
+  localStorage.setItem("favoritos", JSON.stringify(productoFavoritoLS));
+  // alert("se agrego el producto a favoritos");
+  swal("¡Genial! ", "¡Se agrego a favoritos! ", "success");
 
+  productoFavoritoLS.innerHTML = "Favorito: ${productoFavoritoLS}";
+});
+const botonAgregar3 = document.getElementById("botonAgregar3");
+botonAgregar3.addEventListener("click", (e) => {
+  e.preventDefault();
+  const nombre = document.querySelector("#productoNombre3").textContent;
+  const precio = document.getElementById("precioProducto3").textContent;
+  const imagen = document.getElementById("imagenProducto3").src;
+  // const favorito = document.getElementById("productosFavoritos");
+  const productoFavoritoLS =
+    JSON.parse(localStorage.getItem("favoritos")) || [];
+  const productoAgregado = productoFavoritoLS.find(
+    (favorito) => favorito.nombre === nombre
+  );
+  if (productoAgregado) {
+    return alert("el producto ya fue marcado como favorito ");
+  }
+  productoFavoritoLS.push({
+    nombre: nombre,
+    precio: precio,
+    imagen: imagen,
+  });
 
+  localStorage.setItem("favoritos", JSON.stringify(productoFavoritoLS));
+  // alert("se agrego el producto a favoritos");
+  swal("¡Genial! ", "¡Se agrego a favoritos! ", "success");
 
+  productoFavoritoLS.innerHTML = "Favorito: ${productoFavoritoLS}";
+});
 
+const botonAgregar4 = document.getElementById("botonAgregar4");
+botonAgregar4.addEventListener("click", (e) => {
+  e.preventDefault();
+  const nombre = document.querySelector("#productoNombre4").textContent;
+  const precio = document.getElementById("precioProducto4").textContent;
+  const imagen = document.getElementById("imagenProducto4").src;
+  // const favorito = document.getElementById("productosFavoritos");
+  const productoFavoritoLS =
+    JSON.parse(localStorage.getItem("favoritos")) || [];
+  const productoAgregado = productoFavoritoLS.find(
+    (favorito) => favorito.nombre === nombre
+  );
+  if (productoAgregado) {
+    return alert("el producto ya fue marcado como favorito ");
+  }
+  productoFavoritoLS.push({
+    nombre: nombre,
+    precio: precio,
+    imagen: imagen,
+  });
 
+  localStorage.setItem("favoritos", JSON.stringify(productoFavoritoLS));
+  // alert("se agrego el producto a favoritos");
+  swal("¡Genial! ", "¡Se agrego a favoritos! ", "success");
 
-// producto.forEach((producto) => {
-//   producto.addEventListener('click', (evento) => {
-//     evento.preventDefault();
-//     const nuevoFavorito = document.createElement('li');
-//     nuevoFavorito.innerHTML = evento.target.innerHTML;
-//     listaFavoritos.appendChild(nuevoFavorito);
-//   });
-// });
-
-// function actualizarFavoritos() {
-//   const favoritos = Array.from(listaFavoritos.children).map((li) => li.innerHTML);
-//   localStorage.setItem('favoritos', JSON.stringify(favoritos));
-// }
-
-// function cargarFavoritos() {
-//   const favoritos = JSON.parse(localStorage.getItem('favoritos'));
-//   if (favoritos) {
-//     favoritos.forEach((favorito) => {
-//       const nuevoFavorito = document.createElement('li');
-//       nuevoFavorito.innerHTML = favorito;
-//       listaFavoritos.appendChild(nuevoFavorito);
-//     });
-//   }
-// }
-
-// cargarFavoritos();
-
-
-// //const favoritos = (localStorage.getItem("favoritos")) || "[]";
-
-
-
-
-// // // cuando se pulsa en "agregar a favoritos"
-
-// // const agregarFavoritos = document.querySelector("#agregar-favoritos")
-// // agregarFavoritos.addEventListener("submit",(e)=> {
-// //     e.preventDefault()
-// //     let datos = {
-
-// //         nombre: document.getElementById("productoNombre").value,
-// //         precio: document.getElementById("precioProducto").value,
-// //         imagen: document.getElementById("imagenProducto").value,
-// //       };
-// //     // hacemos que no se ejecute el enlace
-    
-// //     const nombreProducto = document.querySelector("#producto-nombre").value;
-// //     const precioProducto = document.querySelector("#precioProducto").value;
-// //     const imagenProducto = document.querySelector("#imagenProducto").value;
-    
-// //     const Favoritos = JSON.parse(localStorage.getItem("favoritos")) || "[]";
-// //     // const productoAgregado = Favoritos.find((favorito) => favorito.nombreProducto === nombreProducto)
-
-// //     // if(productoAgregado){
-// //     //     return alert("El producto ya esta agregado")
-        
-// //     // }else{
-// //     // }
-// //     Favoritos.push(datos)
-
-    
-
-// //      // guardamos la lista de favoritos 
-// //      localStorage.setItem("favs", JSON.stringify(Favoritos));
-  
-// //     });
-
-    
-
-
-  
-// //     // leemos los datos clave del producto y los guardamos en un objeto
-// //     /*let datos = {
-
-// //       nombre: document.getElementById("producto-nombre").value,
-// //       precio: document.getElementById("precioProducto").value,
-// //       imagen: document.getElementById("imagenProducto").value,
-// //     };*/
-  
-// //     // leemos los favoritos del localStorage
-// //     //let favoritos = JSON.parse(localStorage.getItem("favoritos")) || "[]";
-     
-// //     // buscamos el producto en la lista de favoritos
-// //     /*      const posLista = favoritos.findIndex(function(e) { return e.nombre === datos.nombre; });
-// //     if (posLista > -1) {
-// //       // si está, lo quitamos
-// //       favoritos.splice(posLista, 1);
-// //     } else {
-// //       // si no está, lo añadimos
-// //       favoritos.push(datos);
-// //     } */
-  
-   
+  productoFavoritoLS.innerHTML = "Favorito: ${productoFavoritoLS}";
+});
