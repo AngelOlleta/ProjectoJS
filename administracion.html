@@ -39,7 +39,7 @@
       <div id="tarjeta2" class="tarjeta"  data-bs-toggle="modal" data-bs-target="#modalEliminar">
         <h3>Eliminar<br> un<br> Producto</h3>
       </div>
-      <div id="tarjeta3" class="tarjeta">
+      <div id="tarjeta3" class="tarjeta" data-bs-toggle="modal" data-bs-target="#modalEditar">
         <h3>Editar<br> un<br> Producto</h3>
       </div>
     </section>
@@ -136,6 +136,9 @@
   </div>
 
   <!-- MODALES -->
+
+
+  <!-- MODAL AGREAR -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -185,10 +188,43 @@
                   <th>Nombre</th>
                   <th>Precio</th>
                   <th>Descripcion</th>
-                  <th class="text-center"></th>
+                  <th class="text-center">Borrar</th>
                 </tr>
               </thead>
               <tbody id="bodytextoEliminar"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL EDITAR -->
+  <div class="modal fade lg" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar un Producto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="listaseccion2">
+            <div class="tituloproductos">
+              <h2 class="mb-3 p-0 text-center"><img src="./imagenes/iconoLogo.png" class="text-center logomain">Editar Productos
+              </h2>
+            </div>
+            <table id="tablaDeProdEditar">
+              <thead>
+                <tr>
+                  <th>#codigo</th>
+                  <th>Nombre</th>
+                  <th>Precio</th>
+                  <th>Descripcion</th>
+                  <th class="text-center"></th>
+                </tr>
+              </thead>
+              <tbody id="bodytextoEditar"></tbody>
             </table>
           </div>
         </div>
