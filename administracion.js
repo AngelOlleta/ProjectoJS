@@ -12,6 +12,8 @@ const tbodylistado = document.getElementById(`bodytexto`)
 const tbodylistadoEliminar = document.getElementById(`bodytextoEliminar`)
 const tbodylistadoEditar = document.getElementById(`bodytextoEditar`)
 
+
+
 //FUNCION AÑADIR
 añadirBoton.addEventListener(`click`, (e) => {
     e.preventDefault();
@@ -65,7 +67,7 @@ function mostrarProdEnEliminar() {
   </svg>Eliminar</button></td>`;
     
     tbodylistadoEliminar.appendChild(tr);
-
+    
   });
 }
 
@@ -89,7 +91,7 @@ listadoEliminar.addEventListener("click", (e) => {
     const index = productos.findIndex((producto) => producto.codigo === id);
     if (index !== -1) {
       productos.splice(index, 1);
-
+      
       mostrarProd();
       mostrarProdEnEliminar();
       mostrarProdEnEditar();
@@ -110,6 +112,42 @@ function mostrarProdEnEditar() {
     <td><button id="eliminarProdBtn" class="eliminar" data-id="${producto.codigo}"><i class="fa-regular fa-pen-to-square"></i></button></td>`;
     
     tbodylistadoEditar.appendChild(tr);
-
+    
   });
 }
+
+//  VALIDACIONES DE FORMULARIO AGREGAR:
+
+const nombreInput = document.getElementById('nombre');
+const precioInput = document.getElementById('precio');
+const urlimagenInput = document.getElementById('urlimagen');
+const descripcionInput = document.getElementById('descripcion');
+const enviarBtn = document.getElementById('enviarproducto');
+
+// Validaciones:
+
+enviarBtn.addEventListener('click', function(event) {
+
+  if (nombreInput.value === '') {
+    alert('Por favor, ingresa un nombre para el producto');
+    event.preventDefault(); 
+    return;
+  }
+  if (precioInput.value === '') {
+    alert('Por favor, ingresa un precio para el producto');
+    event.preventDefault();
+    return;
+  }
+  if (urlimagenInput.value === '') {
+    alert('Por favor, ingresa una URL de imagen para el producto');
+    event.preventDefault();
+    return;
+  }
+  if (descripcionInput.value === '') {
+    alert('Por favor, ingresa una descripción para el producto');
+    event.preventDefault();
+    return;
+  }
+});
+
+
