@@ -120,7 +120,6 @@ table {
 
   td, th {
     border: 1px solid #ccc;
-    text-align: left;
     padding: 8px;
   }
 
@@ -153,15 +152,8 @@ th{
     position: relative;
     top: 5px;
     margin-bottom: 7px;
-    color: rgb(65, 65, 65);
-    border: 1px rgb(99, 99, 99) solid;
-    border-radius: 4px;
 }
 
-#enviarproducto:hover{
-    color: rgb(0, 158, 158);
-    background-color: rgb(222, 222, 222);
-}
 
 /* RESPONSIVE */
 
@@ -206,31 +198,13 @@ th{
 }
 }
 
-#eliminarProdBtn{
-    border: 0px;
-    margin: auto;
-    height: 35px;
-    width: 45%;
-    border-radius:50% ;
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#eliminarProdBtn i{
-    font-size: xx-large;
-}
-
-#eliminarProdBtn:hover{
-    background-color: rgb(245, 203, 203);
-}
-
 .areaEliminar{
     padding: 0px;
     margin: 0px;
-    background-color: rgb(232, 231, 231);
+    background-color: rgb(255, 255, 255);
+    text-align: center;
 }
+
 
 #editarProdBtn{
     border: 0px;
@@ -242,4 +216,8 @@ th{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#botoneliminari{
+margin-right: 4px;
 }
