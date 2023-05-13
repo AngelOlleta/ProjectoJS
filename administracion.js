@@ -140,6 +140,7 @@ listadoEditar.addEventListener("click", (e) => {
         const nombre = nombreEditar.value
         const precio = precioEditar.value
         const descripcion = descripcionEditar.value
+        const codigo = codigo
         const producto = { nombre, precio, descripcion };
         productos.push(producto);
         mostrarProd();
