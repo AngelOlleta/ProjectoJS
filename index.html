@@ -12,7 +12,7 @@
     />
     <title>Flex</title>
     <link rel="icon" href="./Imagenes/iconoLogo.png" />
-    <link rel="stylesheet" href="./favorito.css">
+    <link rel="stylesheet" href="./favorito.css" />
   </head>
   <body>
     <header>
@@ -88,8 +88,8 @@
             <a data-bs-toggle="modal" data-bs-target="#exampleModal">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
+                width="35"
+                height="35"
                 fill="secundaryColor"
                 class="bi bi-search p-1"
                 viewBox="0 0 18 18"
@@ -138,8 +138,8 @@
             <a data-bs-toggle="modal" data-bs-target="#exampleModal2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
+                width="35"
+                height="35"
                 fill="secundaryColor"
                 class="bi bi-person p-1"
                 viewBox="0 0 16 16"
@@ -218,8 +218,8 @@
             <a href="./error404.html"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="25"
+                width="35"
+                height="35"
                 fill="secundaryColor"
                 class="bi bi-bag p-1"
                 viewBox="0 0 16 16"
@@ -229,21 +229,24 @@
                 />
               </svg>
             </a>
-            <a  href="./productosDeseados.html">
+            <a href="./productosDeseados.html" class="position-relative">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="25"
+                width="35"
+                height="35"
                 fill="secundaryColor"
                 class="bi bi-suit-heart p-1"
                 viewBox="0 0 16 16"
               >
-              <path
-              d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"
+                <path
+                  d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"
                 />
               </svg>
+              <span
+                class="position-absolute d-flex align-items-center justify-content-center top-50 end-0 bg-info rounded-5 w-50 h-50 fs-9 contFav"
+                >0</span
+              >
             </a>
-            
           </form>
         </div>
       </div>
@@ -285,158 +288,10 @@
     </div>
 
     <!-- ofertas -->
-    <div class="container-fluid" style="text-align: end">
-      <a style="text-decoration: none; color: black" href="./error404.html">
-        VER MAS
-      </a>
-    </div>
-    <div class="d-flex m-0" id="listaProductos">
-      <div class="row row-cols-2 row-cols-md-4 g-4 m-0">
-        <div class="col" id="producto">
-          <div class="card h-50">
-            <a href="./infoProducto.html">
-              <img
-                id="imagenProducto"
-                src="./Imagenes/camiseta.jpg"
-                class="card-img-top"
-                alt="..."
-              />
-            </a>
-            <div class="card-body">
-              <div class="d-flex justify-content-between">
-                <h5 id="productoNombre">Camiseta Femenina</h5>
-                <div>
-                  <a id="botonAgregar">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg" class="corazon"
-                      width="25"
-                      height="25"
-                      fill="secundaryColor"
-                      class="bi bi-suit-heart p-1"
-                      type="submit"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <p id="precioProducto">$48.000</p>
-            </div>
-          </div>
-        </div>
-        <div class="col" id="producto">
-          <div class="card h-50">
-            <a href="./error404.html">
-              <img
-                id="imagenProducto2"
-                src="https://images.pexels.com/photos/11220643/pexels-photo-11220643.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                class="card-img-top"
-                alt="..."
-              />
-            </a>
-            <div class="card-body">
-              <div class="d-flex justify-content-between">
-                <h5 id="productoNombre2">Zapatillas Urbanas</h5>
-                <div>
-                  <a id="botonAgregar2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg" class="corazon"
-                      width="25"
-                      height="25"
-                      fill="secundaryColor"
-                      class="bi bi-suit-heart p-1"
-                      type="submit"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <p id="precioProducto2">$45.000</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="col" id="producto">
-          <div class="card h-50">
-            <a href="./error404.html">
-              <img
-                id="imagenProducto3"
-                src="https://images.pexels.com/photos/1102874/pexels-photo-1102874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                class="card-img-top"
-                alt="..."
-              />
-            </a>
-            <div class="card-body">
-              <div class="d-flex justify-content-between">
-                <h5 id="productoNombre3">Mochila Adidas</h5>
-                <div>
-                  <a id="botonAgregar3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg" class="corazon"
-                      width="25"
-                      height="25"
-                      fill="secundaryColor"
-                      class="bi bi-suit-heart p-1"
-                      type="submit"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <p id="precioProducto3">$35.000</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col" id="producto">
-          <div class="card h-50">
-            <a href="./error404.html">
-              <img
-                id="imagenProducto4"
-                src="https://images.pexels.com/photos/13439547/pexels-photo-13439547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                class="card-img-top"
-                alt="..."
-              />
-            </a>
-            <div class="card-body">
-              <div class="d-flex justify-content-between">
-                <h5 id="productoNombre4">Zapatillas Adidas</h5>
-                <div>
-                  <a id="botonAgregar4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg" class="corazon"
-                      width="25"
-                      height="25"
-                      fill="secundaryColor"
-                      class="bi bi-suit-heart p-1"
-                      type="submit"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <p id="precioProducto4">$50.000</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="d-flex row g-4 m-0 card-producto">
+      <!-- <div class=""></div> -->
     </div>
-    <div id=" "></div>
 
     <!-- Categorias -->
     <div class="d-flex m-0">
@@ -637,19 +492,22 @@
             <li class="ms-3">
               <a class="link-body-emphasis" href="#"
                 ><svg class="bi" width="24" height="24">
-                  <use xlink:href="#twitter" /></svg>
+                  <use xlink:href="#twitter" />
+                </svg>
               </a>
             </li>
             <li class="ms-3">
               <a class="link-body-emphasis" href="#"
                 ><svg class="bi" width="24" height="24">
-                  <use xlink:href="#instagram" /></svg>
+                  <use xlink:href="#instagram" />
+                </svg>
               </a>
             </li>
             <li class="ms-3">
               <a class="link-body-emphasis" href="#"
                 ><svg class="bi" width="24" height="24">
-                  <use xlink:href="#facebook" /></svg>
+                  <use xlink:href="#facebook" />
+                </svg>
               </a>
             </li>
           </ul>
@@ -664,10 +522,9 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
-    <script src="./favorito1.js"></script>
-    
-    <script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js "> </script> 
-  
+    <script src="./index.js"></script>
+    <!-- <script src="productosDeseados.js"></script> -->
+
+    <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
   </body>
-  
 </html>
