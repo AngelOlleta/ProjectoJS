@@ -205,19 +205,26 @@ th{
     text-align: center;
 }
 
-
-#editarProdBtn{
-    border: 0px;
-    margin: auto;
-    height: 35px;
-    width: 45%;
-    border-radius:50% ;
-    background-color: rgb(0, 0, 0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.areaEditar{
+    padding: 0px;
+    margin: 0px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
 }
+
 
 #botoneliminari{
 margin-right: 4px;
+}
+
+#botoneditari{
+    margin-right: 4px;
+    }
+
+.theliminar{
+    background-color: rgb(251, 84, 84);
+}
+
+.theditar{
+    background-color: cyan;
 }

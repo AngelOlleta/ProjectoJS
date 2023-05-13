@@ -154,7 +154,7 @@
               <label for="precio" class="col-form-label">Precio:</label>
               <input type="text" class="form-control focus-ring focus-ring-info" id="precio">
               <label for="urlimagen" class="col-form-label">URL de Imagen:</label>
-              <input type="text" class="form-control focus-ring focus-ring-info" id="urlimagen">
+              <input type="text" class="form-control focus-ring focus-ring-info" id="urlImagen">
             </div>
             <div class="mb-3">
               <label for="descripcion" class="col-form-label">Descripcion:</label>
@@ -184,11 +184,11 @@
             <table id="tablaDeProdEliminar">
               <thead>
                 <tr>
-                  <th>#codigo</th>
-                  <th>Nombre</th>
-                  <th>Precio</th>
-                  <th>Descripcion</th>
-                  <th></th>
+                  <th class="theliminar">#codigo</th>
+                  <th class="theliminar">Nombre</th>
+                  <th class="theliminar">Precio</th>
+                  <th class="theliminar">Descripcion</th>
+                  <th class="theliminar"></th>
                 </tr>
               </thead>
               <tbody id="bodytextoEliminar"></tbody>
@@ -217,11 +217,11 @@
             <table id="tablaDeProdEditar">
               <thead>
                 <tr>
-                  <th>#codigo</th>
-                  <th>Nombre</th>
-                  <th>Precio</th>
-                  <th>Descripcion</th>
-                  <th class="text-center"></th>
+                  <th class="theditar">#codigo</th>
+                  <th class="theditar">Nombre</th>
+                  <th class="theditar">Precio</th>
+                  <th class="theditar">Descripcion</th>
+                  <th class="theditar"></th>
                 </tr>
               </thead>
               <tbody id="bodytextoEditar"></tbody>
@@ -231,6 +231,39 @@
       </div>
     </div>
   </div>
+
+  <!-- MODAL EDITAR FORM -->
+  <div class="modal fade" id="editarFormModal" tabindex="-1" aria-labelledby="editarFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Producto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formularioEditar">
+            <div class="mb-3">
+              <label for="nombre" class="col-form-label">Nombre:</label>
+              <input type="text" class="form-control focus-ring focus-ring-info" id="nombreEditar">
+              <label for="precio" class="col-form-label">Precio:</label>
+              <input type="text" class="form-control focus-ring focus-ring-info" id="precioEditar">
+              <label for="urlimagen" class="col-form-label">URL de Imagen:</label>
+              <input type="text" class="form-control focus-ring focus-ring-info" id="urlimagen">
+            </div>
+            <div class="mb-3">
+              <label for="descripcion" class="col-form-label">Descripcion:</label>
+              <textarea class="form-control focus-ring focus-ring-info" id="descripcionEditar"></textarea>
+            </div>
+            <input type="button" id="editarproductoboton" value="Guardar" class="btn btn-outline-info">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
 
   <script src="https://kit.fontawesome.com/ad3f8a5b08.js" crossorigin="anonymous"></script>
   <script src="./administracion.js"></script>
