@@ -18,6 +18,8 @@ const precioEditar = document.getElementById(`precioEditar`)
 const descripcionEditar = document.getElementById(`descripcionEditar`)
 
 
+
+
 //FUNCION AÑADIR
 añadirBoton.addEventListener(`click`, (e) => {
     e.preventDefault();
@@ -71,7 +73,7 @@ function mostrarProdEnEliminar() {
   </svg>Eliminar</button></td>`;
     
     tbodylistadoEliminar.appendChild(tr);
-
+    
   });
 }
 
@@ -95,7 +97,7 @@ listadoEliminar.addEventListener("click", (e) => {
     const index = productos.findIndex((producto) => producto.codigo === id);
     if (index !== -1) {
       productos.splice(index, 1);
-
+      
       mostrarProd();
       mostrarProdEnEliminar();
       mostrarProdEnEditar();
@@ -121,7 +123,7 @@ function mostrarProdEnEditar() {
   </svg>Editar</button></td>`;
     
     tbodylistadoEditar.appendChild(tr);
-
+    
   });
 }
 
@@ -151,3 +153,41 @@ listadoEditar.addEventListener("click", (e) => {
     }
     }
 );
+
+
+
+//  VALIDACIONES DE FORMULARIO AGREGAR:
+
+// const nombreInput = document.getElementById('nombre');
+// const precioInput = document.getElementById('precio');
+// const urlimagenInput = document.getElementById('urlimagen');
+// const descripcionInput = document.getElementById('descripcion');
+// const enviarBtn = document.getElementById('enviarproducto');
+
+// // Validaciones:
+
+// enviarBtn.addEventListener('click', function(event) {
+
+//   if (nombreInput.value === '') {
+//     alert('Por favor, ingresa un nombre para el producto');
+//     event.preventDefault(); 
+//     return;
+//   }
+//   if (precioInput.value === '') {
+//     alert('Por favor, ingresa un precio para el producto');
+//     event.preventDefault();
+//     return;
+//   }
+//   if (urlimagenInput.value === '') {
+//     alert('Por favor, ingresa una URL de imagen para el producto');
+//     event.preventDefault();
+//     return;
+//   }
+//   if (descripcionInput.value === '') {
+//     alert('Por favor, ingresa una descripción para el producto');
+//     event.preventDefault();
+//     return;
+//   }
+// });
+
+
