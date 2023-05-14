@@ -59,6 +59,23 @@ añadirBoton.addEventListener(`click`, (e) => {
   console.log(productos);
   localStorage.setItem(`productos`, JSON.stringify(productos));
 
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+  
+  Toast.fire({
+    icon: 'success',
+    title: 'El Producto se agrego Correctamente'
+  })
+  
   mostrarProd();
   mostrarProdEnEliminar();
   mostrarProdEnEditar();
@@ -131,7 +148,7 @@ listadoEliminar.addEventListener("click", (e) => {
           const productosLocalStorage = JSON.parse(localStorage.getItem("productos"));
           const productosActualizados = productosLocalStorage.filter((producto) => producto.codigo !== id);
           localStorage.setItem("productos", JSON.stringify(productosActualizados));
-
+          
           mostrarProd();
           mostrarProdEnEliminar();
           mostrarProdEnEditar();
@@ -180,13 +197,56 @@ listadoEditar.addEventListener("click", (e) => {
     document.getElementById("descripcionEditar").value = producto.descripcion; // Seteamos el valor del input descripcion
     listadoEditar.dataset.editId = id; // Seteamos el id del producto a editar
     editarproductoboton.addEventListener("click", (e) => {
+      
       const nuevoNombre = nombreEditar.value
       const nuevoPrecio = precioEditar.value
       const nuevaDescripcion = descripcionEditar.value
+
+
+      //  VALIDACIONES DE FUNCION AÑADIR:
+  if (nuevoNombre.trim() === "" || nuevoPrecio.trim() === "" || nuevaDescripcion.trim() === "") {
+    alert('Por favor, compete todos los campos');
+    e.preventDefault();
+    return;
+  }
+  if (nuevoNombre.length < 3 || nuevaDescripcion.length > 50) {
+    alert('Nombre: debe tener mas de 3 caracteres');
+    e.preventDefault();
+    return;
+  }
+  if (!/^\d+(\.\d+)?$/.test(nuevoPrecio)) {
+    alert('Precio solo adminte caracteres numericos');
+    e.preventDefault();
+    return;
+  }
+  if (nuevaDescripcion.length < 15 || nuevaDescripcion.length > 100) {
+    alert('Descripcion: debe tener un minimo de 20 caracteres');
+    e.preventDefault();
+    return;
+  }
       productos[index].nombre = nuevoNombre;
       productos[index].descripcion = nuevaDescripcion;
       productos[index].precio = nuevoPrecio;
       localStorage.setItem("productos", JSON.stringify(productos));
+      
+
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: 'El producto se modifico Correctamente'
+      })
+
       
       mostrarProd();
       mostrarProdEnEliminar();
