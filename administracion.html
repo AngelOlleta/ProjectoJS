@@ -150,15 +150,15 @@
           <form id="formularioproducto">
             <div class="mb-3">
               <label for="nombre" class="col-form-label">Nombre:</label>
-              <input type="text" class="form-control focus-ring focus-ring-info" id="nombre">
+              <input type="text" class="form-control focus-ring focus-ring-info" id="nombre" required minlength="3" maxlength="50">
               <label for="precio" class="col-form-label">Precio:</label>
-              <input type="text" class="form-control focus-ring focus-ring-info" id="precio">
+              <input type="text" class="form-control focus-ring focus-ring-info" id="precio" required pattern="\d+(\.\d+)?">
               <label for="urlimagen" class="col-form-label">URL de Imagen:</label>
               <input type="text" class="form-control focus-ring focus-ring-info" id="urlImagen">
             </div>
             <div class="mb-3">
               <label for="descripcion" class="col-form-label">Descripcion:</label>
-              <textarea class="form-control focus-ring focus-ring-info" id="descripcion"></textarea>
+              <textarea class="form-control focus-ring focus-ring-info" id="descripcion" required minlength="20" maxlength="100"></textarea></textarea>
             </div>
             <input type="button" id="enviarproducto" value="Guardar" class="btn btn-outline-info">
           </form>
