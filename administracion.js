@@ -27,6 +27,7 @@ añadirBoton.addEventListener(`click`, (e) => {
   const nombre = nombreDeProducto.value
   const precio = precioDeProducto.value
   const descripcion = descripcionDeProducto.value
+  const imagen = urlImagen.value
   const codigo = uuidv4();
 
   
@@ -54,7 +55,7 @@ añadirBoton.addEventListener(`click`, (e) => {
   }
     // FIN DE VALIDACION
 
-  const producto = { codigo, nombre, precio, descripcion };
+  const producto = { codigo, nombre, precio, descripcion , imagen};
   productos.push(producto);
   console.log(productos);
   localStorage.setItem(`productos`, JSON.stringify(productos));
@@ -195,12 +196,14 @@ listadoEditar.addEventListener("click", (e) => {
     document.getElementById("nombreEditar").value = producto.nombre; // Seteamos el valor del input nombre
     document.getElementById("precioEditar").value = producto.precio; // Seteamos el valor del input precio
     document.getElementById("descripcionEditar").value = producto.descripcion; // Seteamos el valor del input descripcion
+    document.getElementById("urlimagenEditar").value = producto.imagen
     listadoEditar.dataset.editId = id; // Seteamos el id del producto a editar
     editarproductoboton.addEventListener("click", (e) => {
       
       const nuevoNombre = nombreEditar.value
       const nuevoPrecio = precioEditar.value
       const nuevaDescripcion = descripcionEditar.value
+      const nuevaImagen = urlimagenEditar.value
 
 
       //  VALIDACIONES DE FUNCION AÑADIR:
@@ -227,6 +230,7 @@ listadoEditar.addEventListener("click", (e) => {
       productos[index].nombre = nuevoNombre;
       productos[index].descripcion = nuevaDescripcion;
       productos[index].precio = nuevoPrecio;
+      producto[index].imagen = nuevaImagen;
       localStorage.setItem("productos", JSON.stringify(productos));
       
 
