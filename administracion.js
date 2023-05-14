@@ -97,7 +97,7 @@ listadoEliminar.addEventListener("click", (e) => {
     const index = productos.findIndex((producto) => producto.codigo === id);
     if (index !== -1) {
       productos.splice(index, 1);
-      
+      localStorage.removeItem(`productos`)
       mostrarProd();
       mostrarProdEnEliminar();
       mostrarProdEnEditar();
@@ -132,8 +132,11 @@ const editarproductoboton = document.getElementById(`editarproductoboton`)
 //EDITAR PRODUCTO
 listadoEditar.addEventListener("click", (e) => {
     const id = e.target.dataset.id;
+    const index = productos.findIndex((producto) => producto.codigo === id);
     const producto = productos.find((producto) => producto.codigo === id);
     if (producto) {
+      editarproductoboton.dataset.id = producto.codigo;
+      const codigo = producto.codigo;
       document.getElementById("nombreEditar").value = producto.nombre; // Seteamos el valor del input nombre
       document.getElementById("precioEditar").value = producto.precio; // Seteamos el valor del input precio
       document.getElementById("descripcionEditar").value = producto.descripcion; // Seteamos el valor del input descripcion
@@ -142,9 +145,11 @@ listadoEditar.addEventListener("click", (e) => {
         const nombre = nombreEditar.value
         const precio = precioEditar.value
         const descripcion = descripcionEditar.value
-        const codigo = codigo
-        const producto = { nombre, precio, descripcion };
+        // const codigo = producto.codigo
+        const producto = {codigo ,nombre, precio, descripcion };
+        productos.splice(index, 1);
         productos.push(producto);
+        localStorage.setItem(`productos`, JSON.stringify(productos));
         mostrarProd();
         mostrarProdEnEliminar();
         mostrarProdEnEditar();
@@ -158,36 +163,36 @@ listadoEditar.addEventListener("click", (e) => {
 
 //  VALIDACIONES DE FORMULARIO AGREGAR:
 
-// const nombreInput = document.getElementById('nombre');
-// const precioInput = document.getElementById('precio');
-// const urlimagenInput = document.getElementById('urlimagen');
-// const descripcionInput = document.getElementById('descripcion');
-// const enviarBtn = document.getElementById('enviarproducto');
+const nombreInput = document.getElementById('nombre');
+const precioInput = document.getElementById('precio');
+const urlimagenInput = document.getElementById('urlimagen');
+const descripcionInput = document.getElementById('descripcion');
+const enviarBtn = document.getElementById('enviarproducto');
 
-// // Validaciones:
+// Validaciones:
 
-// enviarBtn.addEventListener('click', function(event) {
+enviarBtn.addEventListener('click', function(event) {
 
-//   if (nombreInput.value === '') {
-//     alert('Por favor, ingresa un nombre para el producto');
-//     event.preventDefault(); 
-//     return;
-//   }
-//   if (precioInput.value === '') {
-//     alert('Por favor, ingresa un precio para el producto');
-//     event.preventDefault();
-//     return;
-//   }
-//   if (urlimagenInput.value === '') {
-//     alert('Por favor, ingresa una URL de imagen para el producto');
-//     event.preventDefault();
-//     return;
-//   }
-//   if (descripcionInput.value === '') {
-//     alert('Por favor, ingresa una descripción para el producto');
-//     event.preventDefault();
-//     return;
-//   }
-// });
+  if (nombreInput.value === '') {
+    alert('Por favor, ingresa un nombre para el producto');
+    event.preventDefault(); 
+    return;
+  }
+  if (precioInput.value === '') {
+    alert('Por favor, ingresa un precio para el producto');
+    event.preventDefault();
+    return;
+  }
+  if (urlimagenInput.value === '') {
+    alert('Por favor, ingresa una URL de imagen para el producto');
+    event.preventDefault();
+    return;
+  }
+  if (descripcionInput.value === '') {
+    alert('Por favor, ingresa una descripción para el producto');
+    event.preventDefault();
+    return;
+  }
+});
 
 
