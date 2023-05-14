@@ -22,21 +22,47 @@ const descripcionEditar = document.getElementById(`descripcionEditar`)
 
 //FUNCION AÑADIR
 añadirBoton.addEventListener(`click`, (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  
+  const nombre = nombreDeProducto.value
+  const precio = precioDeProducto.value
+  const descripcion = descripcionDeProducto.value
+  const codigo = uuidv4();
 
-    const nombre = nombreDeProducto.value
-    const precio = precioDeProducto.value
-    const descripcion = descripcionDeProducto.value
-    const codigo = uuidv4();
-    const producto = { codigo, nombre, precio, descripcion };
-    productos.push(producto);
-    console.log(productos);
-    localStorage.setItem(`productos`, JSON.stringify(productos));
+  
+  
+  //  VALIDACIONES DE FUNCION AÑADIR:
+  if (nombre.trim() === "" || precio.trim() === "" || descripcion.trim() === "") {
+    alert('Por favor, compete todos los campos');
+    preventDefault();
+    return;
+  }
+  if (nombre.length < 3) {
+    alert('Nombre: debe tener mas de 3 caracteres');
+    preventDefault();
+    return;
+  }
+  if (!/^\d+(\.\d+)?$/.test(precio)) {
+    alert('Precio solo adminte caracteres numericos');
+    preventDefault();
+    return;
+  }
+  
+  if (descripcion.length < 15 || descripcion.length > 100) {
+    alert('Descripcion: debe tener un minimo de 20 caracteres');
+    preventDefault();
+    return;
+  }
 
-    mostrarProd();
-    mostrarProdEnEliminar();
-    mostrarProdEnEditar();
-    formulario.reset();
+  const producto = { codigo, nombre, precio, descripcion };
+  productos.push(producto);
+  console.log(productos);
+  localStorage.setItem(`productos`, JSON.stringify(productos));
+
+  mostrarProd();
+  mostrarProdEnEliminar();
+  mostrarProdEnEditar();
+  formulario.reset();
 });
 
 //FUNCION MOSTRAR
@@ -71,20 +97,20 @@ function mostrarProdEnEliminar() {
     <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
   </svg>Eliminar</button></td>`;
-    
+
     tbodylistadoEliminar.appendChild(tr);
-    
+
   });
 }
 
 
 //CODIGO RANDOM
 function uuidv4() {
-  return 'xxxxxx'.replace(/[x]/g, function(c) {
-    const r = Math.random() *9 | 0;
+  return 'xxxxxx'.replace(/[x]/g, function (c) {
+    const r = Math.random() * 9 | 0;
     const v = c == 'x' ? r : (r & 0x3 | 0x8);
     return v.toString(+16);
-});
+  });
 
 }
 
@@ -92,15 +118,24 @@ function uuidv4() {
 
 //FUNCION ELIMINAR
 listadoEliminar.addEventListener("click", (e) => {
+
   if (e.target.classList.contains("eliminar")) {
     const id = e.target.dataset.id;
     const index = productos.findIndex((producto) => producto.codigo === id);
     if (index !== -1) {
-      productos.splice(index, 1);
       
+      productos.splice(index, 1);
+      const confirmarEliminar = confirm("¿Estás seguro de eliminar este producto?");
+      if (confirmarEliminar) {
+        // Eliminar el producto del Local Storage
+        const productosLocalStorage = JSON.parse(localStorage.getItem("productos"));
+        const productosActualizados = productosLocalStorage.filter((producto) => producto.codigo !== id);
+        localStorage.setItem("productos", JSON.stringify(productosActualizados));
+        
       mostrarProd();
       mostrarProdEnEliminar();
       mostrarProdEnEditar();
+      }
     }
   }
 });
@@ -121,9 +156,9 @@ function mostrarProdEnEditar() {
     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
   </svg>Editar</button></td>`;
-    
+
     tbodylistadoEditar.appendChild(tr);
-    
+
   });
 }
 
@@ -131,27 +166,28 @@ const editarproductoboton = document.getElementById(`editarproductoboton`)
 
 //EDITAR PRODUCTO
 listadoEditar.addEventListener("click", (e) => {
-    const id = e.target.dataset.id;
-    const producto = productos.find((producto) => producto.codigo === id);
-    if (producto) {
-      document.getElementById("nombreEditar").value = producto.nombre; // Seteamos el valor del input nombre
-      document.getElementById("precioEditar").value = producto.precio; // Seteamos el valor del input precio
-      document.getElementById("descripcionEditar").value = producto.descripcion; // Seteamos el valor del input descripcion
-      listadoEditar.dataset.editId = id; // Seteamos el id del producto a editar
-      editarproductoboton.addEventListener("click", (e) => {
-        const nombre = nombreEditar.value
-        const precio = precioEditar.value
-        const descripcion = descripcionEditar.value
-        const codigo = codigo
-        const producto = { nombre, precio, descripcion };
-        productos.push(producto);
-        mostrarProd();
-        mostrarProdEnEliminar();
-        mostrarProdEnEditar();
-        formularioEditar.reset();
-      })
-    }
-    }
+
+  const id = e.target.dataset.id;
+  const producto = productos.find((producto) => producto.codigo === id);
+  if (producto) {
+    document.getElementById("nombreEditar").value = producto.nombre; // Seteamos el valor del input nombre
+    document.getElementById("precioEditar").value = producto.precio; // Seteamos el valor del input precio
+    document.getElementById("descripcionEditar").value = producto.descripcion; // Seteamos el valor del input descripcion
+    listadoEditar.dataset.editId = id; // Seteamos el id del producto a editar
+    editarproductoboton.addEventListener("click", (e) => {
+      const nombre = nombreEditar.value
+      const precio = precioEditar.value
+      const descripcion = descripcionEditar.value
+      const codigo = codigo
+      const producto = { nombre, precio, descripcion };
+      productos.push(producto);
+      mostrarProd();
+      mostrarProdEnEliminar();
+      mostrarProdEnEditar();
+      formularioEditar.reset();
+    })
+  }
+}
 );
 
 
@@ -170,7 +206,7 @@ listadoEditar.addEventListener("click", (e) => {
 
 //   if (nombreInput.value === '') {
 //     alert('Por favor, ingresa un nombre para el producto');
-//     event.preventDefault(); 
+//     event.preventDefault();
 //     return;
 //   }
 //   if (precioInput.value === '') {
@@ -189,5 +225,6 @@ listadoEditar.addEventListener("click", (e) => {
 //     return;
 //   }
 // });
+
 
 
