@@ -132,31 +132,45 @@ function uuidv4() {
 
 
 //FUNCION ELIMINAR
+//FUNCION ELIMINAR
 listadoEliminar.addEventListener("click", (e) => {
-
   if (e.target.classList.contains("eliminar")) {
     const id = e.target.dataset.id;
     const index = productos.findIndex((producto) => producto.codigo === id);
     if (index !== -1) {
-      let confirmarEliminar = true;
-
-      while (confirmarEliminar) {
-        confirmarEliminar = confirm("¿Estás seguro de eliminar este producto?");
-
-        if (confirmarEliminar) {
-          // Eliminar el producto del Local Storage
+      Swal.fire({
+        title: '¿Estás seguro de eliminar este producto?',
+        text: "No podrás revertir esto",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
           productos.splice(index, 1);
           const productosLocalStorage = JSON.parse(localStorage.getItem("productos"));
           const productosActualizados = productosLocalStorage.filter((producto) => producto.codigo !== id);
           localStorage.setItem("productos", JSON.stringify(productosActualizados));
-          
+
           mostrarProd();
           mostrarProdEnEliminar();
           mostrarProdEnEditar();
+
+          Swal.fire(
+            '¡Eliminado!',
+            'El producto ha sido eliminado.',
+            'success'
+          );
         } else {
-          console.log("Eliminación cancelada por el usuario");
+          Swal.fire(
+            'Eliminación cancelada',
+            'El producto no ha sido eliminado.',
+            'info'
+          );
         }
-      }
+      });
     }
   }
 });
@@ -230,7 +244,7 @@ listadoEditar.addEventListener("click", (e) => {
       productos[index].nombre = nuevoNombre;
       productos[index].descripcion = nuevaDescripcion;
       productos[index].precio = nuevoPrecio;
-      producto[index].imagen = nuevaImagen;
+      productos[index].imagen = nuevaImagen;
       localStorage.setItem("productos", JSON.stringify(productos));
       
 
