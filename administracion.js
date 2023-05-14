@@ -31,28 +31,28 @@ añadirBoton.addEventListener(`click`, (e) => {
 
   
   
-  //  VALIDACIONES DE FUNCION AÑADIR:
+    //  VALIDACIONES DE FUNCION AÑADIR:
   if (nombre.trim() === "" || precio.trim() === "" || descripcion.trim() === "") {
     alert('Por favor, compete todos los campos');
-    preventDefault();
+    e.preventDefault();
     return;
   }
-  if (nombre.length < 3) {
+  if (nombre.length < 3 || descripcion.length > 50) {
     alert('Nombre: debe tener mas de 3 caracteres');
-    preventDefault();
+    e.preventDefault();
     return;
   }
   if (!/^\d+(\.\d+)?$/.test(precio)) {
     alert('Precio solo adminte caracteres numericos');
-    preventDefault();
+    e.preventDefault();
     return;
   }
-  
   if (descripcion.length < 15 || descripcion.length > 100) {
     alert('Descripcion: debe tener un minimo de 20 caracteres');
-    preventDefault();
+    e.preventDefault();
     return;
   }
+    // FIN DE VALIDACION
 
   const producto = { codigo, nombre, precio, descripcion };
   productos.push(producto);
@@ -80,8 +80,6 @@ function mostrarProd() {
 
   });
 }
-
-
 
 function mostrarProdEnEliminar() {
   listadoEliminar.querySelector("tbody").innerHTML = ""
@@ -113,7 +111,6 @@ function uuidv4() {
   });
 
 }
-
 
 
 //FUNCION ELIMINAR
@@ -165,6 +162,7 @@ function mostrarProdEnEditar() {
 const editarproductoboton = document.getElementById(`editarproductoboton`)
 
 //EDITAR PRODUCTO
+
 listadoEditar.addEventListener("click", (e) => {
 
   const id = e.target.dataset.id;
@@ -189,42 +187,3 @@ listadoEditar.addEventListener("click", (e) => {
   }
 }
 );
-
-
-
-//  VALIDACIONES DE FORMULARIO AGREGAR:
-
-// const nombreInput = document.getElementById('nombre');
-// const precioInput = document.getElementById('precio');
-// const urlimagenInput = document.getElementById('urlimagen');
-// const descripcionInput = document.getElementById('descripcion');
-// const enviarBtn = document.getElementById('enviarproducto');
-
-// // Validaciones:
-
-// enviarBtn.addEventListener('click', function(event) {
-
-//   if (nombreInput.value === '') {
-//     alert('Por favor, ingresa un nombre para el producto');
-//     event.preventDefault();
-//     return;
-//   }
-//   if (precioInput.value === '') {
-//     alert('Por favor, ingresa un precio para el producto');
-//     event.preventDefault();
-//     return;
-//   }
-//   if (urlimagenInput.value === '') {
-//     alert('Por favor, ingresa una URL de imagen para el producto');
-//     event.preventDefault();
-//     return;
-//   }
-//   if (descripcionInput.value === '') {
-//     alert('Por favor, ingresa una descripción para el producto');
-//     event.preventDefault();
-//     return;
-//   }
-// });
-
-
-
