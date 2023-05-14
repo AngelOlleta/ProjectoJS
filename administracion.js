@@ -120,18 +120,24 @@ listadoEliminar.addEventListener("click", (e) => {
     const id = e.target.dataset.id;
     const index = productos.findIndex((producto) => producto.codigo === id);
     if (index !== -1) {
-      
-      productos.splice(index, 1);
-      const confirmarEliminar = confirm("¿Estás seguro de eliminar este producto?");
-      if (confirmarEliminar) {
-        // Eliminar el producto del Local Storage
-        const productosLocalStorage = JSON.parse(localStorage.getItem("productos"));
-        const productosActualizados = productosLocalStorage.filter((producto) => producto.codigo !== id);
-        localStorage.setItem("productos", JSON.stringify(productosActualizados));
-        
-      mostrarProd();
-      mostrarProdEnEliminar();
-      mostrarProdEnEditar();
+      let confirmarEliminar = true;
+
+      while (confirmarEliminar) {
+        confirmarEliminar = confirm("¿Estás seguro de eliminar este producto?");
+
+        if (confirmarEliminar) {
+          // Eliminar el producto del Local Storage
+          productos.splice(index, 1);
+          const productosLocalStorage = JSON.parse(localStorage.getItem("productos"));
+          const productosActualizados = productosLocalStorage.filter((producto) => producto.codigo !== id);
+          localStorage.setItem("productos", JSON.stringify(productosActualizados));
+
+          mostrarProd();
+          mostrarProdEnEliminar();
+          mostrarProdEnEditar();
+        } else {
+          console.log("Eliminación cancelada por el usuario");
+        }
       }
     }
   }
@@ -167,18 +173,21 @@ listadoEditar.addEventListener("click", (e) => {
 
   const id = e.target.dataset.id;
   const producto = productos.find((producto) => producto.codigo === id);
+  let index = productos.findIndex((producto) => producto.codigo === id);
   if (producto) {
     document.getElementById("nombreEditar").value = producto.nombre; // Seteamos el valor del input nombre
     document.getElementById("precioEditar").value = producto.precio; // Seteamos el valor del input precio
     document.getElementById("descripcionEditar").value = producto.descripcion; // Seteamos el valor del input descripcion
     listadoEditar.dataset.editId = id; // Seteamos el id del producto a editar
     editarproductoboton.addEventListener("click", (e) => {
-      const nombre = nombreEditar.value
-      const precio = precioEditar.value
-      const descripcion = descripcionEditar.value
-      const codigo = codigo
-      const producto = { nombre, precio, descripcion };
-      productos.push(producto);
+      const nuevoNombre = nombreEditar.value
+      const nuevoPrecio = precioEditar.value
+      const nuevaDescripcion = descripcionEditar.value
+      productos[index].nombre = nuevoNombre;
+      productos[index].descripcion = nuevaDescripcion;
+      productos[index].precio = nuevoPrecio;
+      localStorage.setItem("productos", JSON.stringify(productos));
+      
       mostrarProd();
       mostrarProdEnEliminar();
       mostrarProdEnEditar();
