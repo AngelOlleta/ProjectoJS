@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./CSS/buscador.css">
+    <title>Flex</title>
+    <link rel="icon" href="./Imagenes/iconoLogo.png" />
+  </head> 
+  <body>
+    <header>
+      <div
+        class="container-fluid text-center"
+        style="background-color: rgb(0, 0, 0); color: white"
+      >
+        <p>Envio Gratis a patir de $30.000</p>
+      </div>
+    </header>
+    <!-- Navbar-->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">
+          <img src="./Imagenes/logo.png" alt="logo" width="100" height="50" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul
+            class="navbar-nav mx-auto my-2 my-lg-0 navbar-nav"
+            style="--bs-scroll-height: 100px"
+          >
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./about.html">
+                Mujer
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./error404.html">Hombre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./error404.html">Niños</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Sale</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./error404.html">Outlet</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./error404.html"
+                    >Verano 22/23</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./error404.html"
+                    >Invierno 22</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.html">Acerca de nosotros</a>
+            </li>
+          </ul>
+          <form class="d-flex justify-content-end p-2" role="search">
+            <a data-bs-toggle="modal" data-bs-target="#busqueda">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="secundaryColor"
+                class="bi bi-search p-1"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                />
+              </svg>
+            </a>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="busqueda"
+              tabindex="-1"
+              aria-labelledby="busquedaLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="busquedaLabel">Busqueda</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+                  </div>
+                  <ul id="box-search">
+                    <li><a href="error404.html"><i class=""></i>Remeras</a></li>
+                    <li><a href="error404.html"><i class=""></i>Camisetas</a></li>
+                    <li><a href="error404.html"><i class=""></i>Zapatillas</a></li>
+                    <li><a href="error404.html"><i class=""></i>Medias</a></li>
+                    <li><a href="error404.html"><i class=""></i>Conjuntos</a></li>
+                    <li><a href="error404.html"><i class=""></i>Botines</a></li>
+                    <li><a href="error404.html"><i class=""></i>Especiales</a></li>
+                    <li><a href="error404.html"><i class=""></i>Calzados</a></li>
+                </ul>
+                <div id="ocultarBusqueda"></div>
+                  <div class="modal-footer">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a data-bs-toggle="modal" data-bs-target="#exampleModal2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="secundaryColor"
+                class="bi bi-person p-1"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"
+                />
+              </svg>
+            </a>
+
+            <div
+              class="modal fade"
+              id="exampleModal2"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                      DISFRUTÁ DE LOS BENEFICIOS DEL FLEXCLUB AL INICIAR SESIÓN
+                    </h1>
+
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>
+                      Conseguí cupones de descuento, productos exclusivos y
+                      cuando sos parte flexClub
+                    </p>
+                    <form>
+                      <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"
+                          >Inicia Sesion:</label
+                        >
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="floatingCorreoElectronico"
+                          maxlength="50"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"
+                          >Contraseña:</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="floatingCorreoElectronico"
+                          maxlength="50"
+                          required
+                        />
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-dark"
+                      data-bs-dismiss="modal"
+                    >
+                      Ingresar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="./error404.html"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="secundaryColor"
+                class="bi bi-bag p-1"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"
+                />
+              </svg>
+            </a>
+            <a href="./productosDeseados.html"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="secundaryColor"
+                class="bi bi-suit-heart p-1"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"
+                />
+              </svg>
+            </a>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Corrusel -->
+    <div
+      id="carouselExampleSlidesOnly"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src=".//Imagenes/01.png" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item active">
+          <img src="./Imagenes/02.png" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item active">
+          <img src="./Imagenes/03.png" class="d-block w-100" alt="..." />
+        </div>
+      </div>
+    </div>
+    <!-- Susbcripcion -->
+    <div class="d-flex m-3">
+      <div
+        class="container-fluid text-center"
+        style="background-color: rgb(166, 232, 236); color: rgb(0, 0, 0)"
+      >
+        <a
+          class="gl-link links___3xFVs"
+          href="./registro.html"
+          manual_cm_sp="SLOT-2-_-HOME_?_?_HOME_LAM-HP-ANNOUNCEMENT-SUSCRIBETE-_-?-_-710038"
+          data-pos="site_promotion|0"
+          style="text-decoration: none; color: black"
+          ><p>Suscribite a flexClub y obtené 15% de descuento.UNITE YA</p></a
+        >
+      </div>
+    </div>
+
+    <!-- ofertas -->
+    <div class="container-fluid" style="text-align: end">
+      <a style="text-decoration: none; color: black" href="./error404.html">
+        VER MAS</a
+      >
+    </div>
+    <div class="d-flex m-0">
+      <div class="row row-cols-2 row-cols-md-4 g-4 m-0">
+        <div class="col">
+          <div class="card h-50">
+            <a href="./infoProducto.html">
+            <img
+              src="./Imagenes/camiseta.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+          </a>
+            <div class="card-body">
+              <h5 class="card-title">
+                Camiseta Femenina
+                <a href="./productosDeseados.html"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="25"
+                    height="25"
+                    fill="secundaryColor"
+                    class="bi bi-suit-heart p-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"
+                    />
+                  </svg>
+                </a>
+              </h5>
+              <p class="card-text">$48.000</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-50">
+            <img
+              src="https://images.pexels.com/photos/11220643/pexels-photo-11220643.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                Zapatillas adidas
+                <a href="."
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="25"
+                    height="25"
+                    fill="secundaryColor"
+                    class="bi bi-suit-heart p-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"
+                    />
+                  </svg>
+                </a>
+              </h5>
+              <p class="card-text">$45.000</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-50">
+            <img
+              src="https://images.pexels.com/photos/1102874/pexels-photo-1102874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                Mochila adidas
+                <a href="."
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="25"
+                    height="25"
+                    fill="secundaryColor"
+                    class="bi bi-suit-heart p-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"
+                    />
+                  </svg>
+                </a>
+              </h5>
+              <p class="card-text">$35.000</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-50">
+            <img
+              src="https://images.pexels.com/photos/13439547/pexels-photo-13439547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                Zapatillas adidas
+                <a href="."
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="25"
+                    height="25"
+                    fill="secundaryColor"
+                    class="bi bi-suit-heart p-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"
+                    />
+                  </svg>
+                </a>
+              </h5>
+              <p class="card-text">$50.000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portada -->
+
+    <div class="d-flex">
+      <video
+        src="./Imagenes/video.mp4"
+        autoplay
+        muted
+        class="d-block w-100"
+        alt="..."
+      ></video>
+    </div>
+
+    <!-- Categorias -->
+    <div class="d-flex m-0">
+      <div class="row row-cols-2 row-cols-md-4 row-cols-sm-2 g-4 m-0">
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="https://images.pexels.com/photos/15759564/pexels-photo-15759564.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Mujer</h5>
+              <p class="card-text">Ver más</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="https://images.pexels.com/photos/1192601/pexels-photo-1192601.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Hombre</h5>
+              <p class="card-text">Ver más</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="https://images.pexels.com/photos/3222146/pexels-photo-3222146.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Niños</h5>
+              <p class="card-text">Ver más</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="https://images.pexels.com/photos/11982379/pexels-photo-11982379.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Sale</h5>
+              <p class="card-text">Ver más</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Susbcripcion -->
+    <div class="d-flex m-3">
+      <div
+        class="container-fluid text-center"
+        style="background-color: rgb(144, 248, 205); color: rgb(0, 0, 0)"
+      >
+        <a
+          class="gl-link links___3xFVs"
+          href="./registro.html"
+          manual_cm_sp="SLOT-2-_-HOME_?_?_HOME_LAM-HP-ANNOUNCEMENT-SUSCRIBETE-_-?-_-710038"
+          data-pos="site_promotion|0"
+          style="text-decoration: none; color: black"
+          ><p>SUMATE A NUESTRO FLEXCLUB. REGISTRATE YA</p></a
+        >
+      </div>
+    </div>
+    <!-- Footer -->
+    <div class="b-example-divider"></div>
+
+    <div class="container text-center">
+      <footer class="py-5">
+        <div class="row">
+          <div class="col-6 col-md-2 mb-1">
+            <h5>Te Ayudamos</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Mensaje de Whatsapp</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >+54 9 3815 78-3030</a
+                >
+              </li>
+              <br />
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Mandanos un mail</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >infoar@flex.com</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Tienda on line</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Contacto</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a
+                  href="./error404.html"
+                  class="nav-link p-0 text-body-secondary"
+                  >Preguntas Frecuentes</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a
+                  href="./error404.html"
+                  class="nav-link p-0 text-body-secondary"
+                  >Cambios y devoluciones</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a
+                  href="./error404.html"
+                  class="nav-link p-0 text-body-secondary"
+                  >Medios de pago</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Somos Flex</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <a href="./about.html" class="nav-link p-0 text-body-secondary"
+                  >Sobre Flex</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a
+                  href="./error404.html"
+                  class="nav-link p-0 text-body-secondary"
+                  >Trabaja con nosotros</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a
+                  href="./error404.html"
+                  class="nav-link p-0 text-body-secondary"
+                  >Termino y Condiciones</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a
+                  href="./error404.html"
+                  class="nav-link p-0 text-body-secondary"
+                  >Politica de Privacidad</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-5 offset-md-1 mb-3">
+            <form>
+              <br />
+              <h5>Suscribiste newsletter</h5>
+              <p>Completa tus datos y obtene 15% en tu primera compra</p>
+              <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden">Email</label>
+                <input
+                  id="newsletter1"
+                  type="email"
+                  class="form-control"
+                  maxlength="50"
+                  placeholder="Email "
+                  required
+                />
+                <button class="btn btn-dark" type="button">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div
+          class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top text-center"
+        >
+          <p>&copy; 2023 Company, Inc. All rights reserved.</p>
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3">
+              <a class="link-body-emphasis" href="#"
+                ><svg class="bi" width="24" height="24">
+                  <use xlink:href="#twitter" /></svg
+              ></a>
+            </li>
+            <li class="ms-3">
+              <a class="link-body-emphasis" href="#"
+                ><svg class="bi" width="24" height="24">
+                  <use xlink:href="#instagram" /></svg
+              ></a>
+            </li>
+            <li class="ms-3">
+              <a class="link-body-emphasis" href="#"
+                ><svg class="bi" width="24" height="24">
+                  <use xlink:href="#facebook" /></svg
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- JS bootstrap -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./principal.js"></script>
+    <script src="./JS/buscador.js"></script>
+  </body>
+  
+</html>
