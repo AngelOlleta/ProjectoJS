@@ -82,15 +82,15 @@ body{
 
 
 #tarjeta1{
-    background-image: url('./imagenes/out.png');
+    background-image: url('../imagenes/out.png');
 }
 
 #tarjeta2{
-    background-image: url('./imagenes/out (1).png');
+    background-image: url('../imagenes/out\ \(1\).png');
 }
 
 #tarjeta3{
-    background-image: url('./imagenes/out (2).png');
+    background-image: url('../imagenes/out\ \(2\).png');
 }
 
 .tarjeta h3{
