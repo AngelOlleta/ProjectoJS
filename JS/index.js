@@ -18,6 +18,7 @@ const cerrarSesion = () => {
     usuarioLogueado = false;
     localStorage.setItem("usuario_logueado", JSON.stringify(usuarioLogueado));
     localStorage.removeItem("user");
+    localStorage.removeItem("usuario_logueado");
     window.location.replace("index.html");
   } else {
     window.location.reload();
