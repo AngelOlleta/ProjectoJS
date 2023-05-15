@@ -10,6 +10,7 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./CSS/buscador.css">
     <title>Flex</title>
     <link rel="icon" href="./Imagenes/iconoLogo.png" />
   </head>
@@ -89,7 +90,7 @@
             </li>
           </ul>
           <form class="d-flex justify-content-end p-2" role="search">
-            <a data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a data-bs-toggle="modal" data-bs-target="#busqueda">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
@@ -107,15 +108,15 @@
             <!-- Modal -->
             <div
               class="modal fade"
-              id="exampleModal"
+              id="busqueda"
               tabindex="-1"
-              aria-labelledby="exampleModalLabel"
+              aria-labelledby="busquedaLabel"
               aria-hidden="true"
             >
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Busqueda</h5>
+                    <h5 class="modal-title" id="busquedaLabel">Busqueda</h5>
                     <button
                       type="button"
                       class="btn-close"
@@ -124,16 +125,20 @@
                     ></button>
                   </div>
                   <div class="modal-body">
-                    <input type="text" maxlength="50" minlength="3" />
+                    <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
                   </div>
+                  <ul id="box-search">
+                    <li><a href="error404.html"><i class=""></i>Remeras</a></li>
+                    <li><a href="error404.html"><i class=""></i>Camisetas</a></li>
+                    <li><a href="error404.html"><i class=""></i>Zapatillas</a></li>
+                    <li><a href="error404.html"><i class=""></i>Medias</a></li>
+                    <li><a href="error404.html"><i class=""></i>Conjuntos</a></li>
+                    <li><a href="error404.html"><i class=""></i>Botines</a></li>
+                    <li><a href="error404.html"><i class=""></i>Especiales</a></li>
+                    <li><a href="error404.html"><i class=""></i>Calzados</a></li>
+                </ul>
+                <div id="ocultarBusqueda"></div>
                   <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Buscar
-                    </button>
                   </div>
                 </div>
               </div>
@@ -597,6 +602,7 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+    <script src="./JS/buscador.js"></script>
     <script src="./JS/index.js"></script>
   </body>
 </html>
