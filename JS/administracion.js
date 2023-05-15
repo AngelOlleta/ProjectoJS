@@ -19,7 +19,7 @@ const descripcionEditar = document.getElementById(`descripcionEditar`)
 
 
 
-
+ 
 //FUNCION AÑADIR
 añadirBoton.addEventListener(`click`, (e) => {
   e.preventDefault();
