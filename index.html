@@ -82,6 +82,11 @@
             <li class="nav-item">
               <a class="nav-link" href="./about.html">Acerca de nosotros</a>
             </li>
+            <li class="nav-item d-none" id="linkAdmin">
+              <a class="nav-link" href="./administracion.html">
+                Administracion
+              </a>
+            </li>
           </ul>
           <form class="d-flex justify-content-end p-2" role="search">
             <a data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -134,7 +139,7 @@
               </div>
             </div>
 
-            <a id="logueo">
+            <a id="btnLogueo" class="" href="./login.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
@@ -149,21 +154,28 @@
               </svg>
             </a>
 
-            <a href="./error404.html"
-              ><svg
+            <a class="d-none" id="btnDeslogueo">
+              <svg
+                type="button"
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
                 height="25"
                 fill="secundaryColor"
-                class="bi bi-bag p-1"
+                class="bi bi-box-arrow-left"
                 viewBox="0 0 16 16"
               >
                 <path
-                  d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"
+                  fill-rule="evenodd"
+                  d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"
                 />
               </svg>
             </a>
-            <a href="./productosDeseados.html"
+
+            <a href="./productosDeseados.html" class="" id="contFav"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -207,6 +219,7 @@
         style="background-color: rgb(166, 232, 236); color: rgb(0, 0, 0)"
       >
         <a
+          id="btnRegistro"
           class="gl-link links___3xFVs"
           href="./registro.html"
           manual_cm_sp="SLOT-2-_-HOME_?_?_HOME_LAM-HP-ANNOUNCEMENT-SUSCRIBETE-_-?-_-710038"
@@ -416,7 +429,7 @@
       </div>
     </div>
     <!-- Susbcripcion -->
-    <div class="d-flex m-3">
+    <!-- <div class="d-flex m-3">
       <div
         class="container-fluid text-center"
         style="background-color: rgb(144, 248, 205); color: rgb(0, 0, 0)"
@@ -430,7 +443,7 @@
           ><p>SUMATE A NUESTRO FLEXCLUB. REGISTRATE YA</p></a
         >
       </div>
-    </div>
+    </div> -->
     <!-- Footer -->
     <div class="b-example-divider"></div>
 
