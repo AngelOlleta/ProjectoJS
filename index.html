@@ -10,10 +10,9 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./CSS/buscador.css">
     <title>Flex</title>
     <link rel="icon" href="./Imagenes/iconoLogo.png" />
-  </head> 
+  </head>
   <body>
     <header>
       <div
@@ -83,9 +82,14 @@
             <li class="nav-item">
               <a class="nav-link" href="./about.html">Acerca de nosotros</a>
             </li>
+            <li class="nav-item d-none" id="linkAdmin">
+              <a class="nav-link" href="./administracion.html">
+                Administracion
+              </a>
+            </li>
           </ul>
           <form class="d-flex justify-content-end p-2" role="search">
-            <a data-bs-toggle="modal" data-bs-target="#busqueda">
+            <a data-bs-toggle="modal" data-bs-target="#exampleModal">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
@@ -103,15 +107,15 @@
             <!-- Modal -->
             <div
               class="modal fade"
-              id="busqueda"
+              id="exampleModal"
               tabindex="-1"
-              aria-labelledby="busquedaLabel"
+              aria-labelledby="exampleModalLabel"
               aria-hidden="true"
             >
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="busquedaLabel">Busqueda</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Busqueda</h5>
                     <button
                       type="button"
                       class="btn-close"
@@ -120,26 +124,22 @@
                     ></button>
                   </div>
                   <div class="modal-body">
-                    <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+                    <input type="text" maxlength="50" minlength="3" />
                   </div>
-                  <ul id="box-search">
-                    <li><a href="error404.html"><i class=""></i>Remeras</a></li>
-                    <li><a href="error404.html"><i class=""></i>Camisetas</a></li>
-                    <li><a href="error404.html"><i class=""></i>Zapatillas</a></li>
-                    <li><a href="error404.html"><i class=""></i>Medias</a></li>
-                    <li><a href="error404.html"><i class=""></i>Conjuntos</a></li>
-                    <li><a href="error404.html"><i class=""></i>Botines</a></li>
-                    <li><a href="error404.html"><i class=""></i>Especiales</a></li>
-                    <li><a href="error404.html"><i class=""></i>Calzados</a></li>
-                </ul>
-                <div id="ocultarBusqueda"></div>
                   <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Buscar
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
 
-            <a data-bs-toggle="modal" data-bs-target="#exampleModal2">
+            <a id="btnLogueo" cla href="./login.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
@@ -154,86 +154,28 @@
               </svg>
             </a>
 
-            <div
-              class="modal fade"
-              id="exampleModal2"
-              tabindex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">
-                      DISFRUTÁ DE LOS BENEFICIOS DEL FLEXCLUB AL INICIAR SESIÓN
-                    </h1>
-
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body">
-                    <p>
-                      Conseguí cupones de descuento, productos exclusivos y
-                      cuando sos parte flexClub
-                    </p>
-                    <form>
-                      <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label"
-                          >Inicia Sesion:</label
-                        >
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="floatingCorreoElectronico"
-                          maxlength="50"
-                          required
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label"
-                          >Contraseña:</label
-                        >
-                        <input
-                          type="password"
-                          class="form-control"
-                          id="floatingCorreoElectronico"
-                          maxlength="50"
-                          required
-                        />
-                      </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-dark"
-                      data-bs-dismiss="modal"
-                    >
-                      Ingresar
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a href="./error404.html"
-              ><svg
+            <a class="d-none" id="btnDeslogueo">
+              <svg
+                type="button"
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
                 height="25"
                 fill="secundaryColor"
-                class="bi bi-bag p-1"
+                class="bi bi-box-arrow-left"
                 viewBox="0 0 16 16"
               >
                 <path
-                  d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"
+                  fill-rule="evenodd"
+                  d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"
                 />
               </svg>
             </a>
-            <a href="./productosDeseados.html"
+
+            <a href="./productosDeseados.html" class="" id="contFav"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -277,6 +219,7 @@
         style="background-color: rgb(166, 232, 236); color: rgb(0, 0, 0)"
       >
         <a
+          id="btnRegistro"
           class="gl-link links___3xFVs"
           href="./registro.html"
           manual_cm_sp="SLOT-2-_-HOME_?_?_HOME_LAM-HP-ANNOUNCEMENT-SUSCRIBETE-_-?-_-710038"
@@ -298,12 +241,12 @@
         <div class="col">
           <div class="card h-50">
             <a href="./infoProducto.html">
-            <img
-              src="./Imagenes/camiseta.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-          </a>
+              <img
+                src="./Imagenes/camiseta.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+            </a>
             <div class="card-body">
               <h5 class="card-title">
                 Camiseta Femenina
@@ -486,7 +429,7 @@
       </div>
     </div>
     <!-- Susbcripcion -->
-    <div class="d-flex m-3">
+    <!-- <div class="d-flex m-3">
       <div
         class="container-fluid text-center"
         style="background-color: rgb(144, 248, 205); color: rgb(0, 0, 0)"
@@ -500,7 +443,7 @@
           ><p>SUMATE A NUESTRO FLEXCLUB. REGISTRATE YA</p></a
         >
       </div>
-    </div>
+    </div> -->
     <!-- Footer -->
     <div class="b-example-divider"></div>
 
@@ -654,8 +597,6 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
-    <script src="./principal.js"></script>
-    <script src="./JS/buscador.js"></script>
+    <script src="./JS/index.js"></script>
   </body>
-  
 </html>
