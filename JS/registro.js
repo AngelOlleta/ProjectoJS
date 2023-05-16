@@ -12,7 +12,7 @@ formRegistro.addEventListener("submit", (e) => {
   const Users = JSON.parse(localStorage.getItem("users")) || [];
   const isUserRegistred = Users.find((user) => user.email === email);
   if (isUserRegistred) {
-    return alert("el usuario ya esta registrado");
+    return swal("El usuaria ya esta registrado");
   }
   Users.push({
     name: nombreCompleto,

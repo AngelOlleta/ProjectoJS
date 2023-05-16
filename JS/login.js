@@ -21,12 +21,12 @@ loginForm.addEventListener("submit", (e) => {
       localStorage.setItem("user", JSON.stringify(userAdmin));
       window.location.replace("index.html");
     } else {
-      alert("Mail y/o contraseña incorrectos");
+      swal("Revisa los datos", "Mail y/o contraseña incorrectos", "error");
     }
   } else if (!validarUsuario) {
-    alert("Mail y/o contraseña incorrectos! ");
+    swal("Revisa los datos", "Mail y/o contraseña incorrectos", "error");
   }
-  alert(`Bienvenido ${validarUsuario.name}`);
+  swal(`Bienvenido ${validarUsuario.name}`);
   localStorage.setItem("usuario_logueado", JSON.stringify(validarUsuario));
   window.location.href = "index.html";
 });
