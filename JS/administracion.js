@@ -1,82 +1,81 @@
-let productos = []
+let productos = [];
 
-const listado = document.getElementById(`tablaDeProd`)
-const listadoEliminar = document.getElementById(`tablaDeProdEliminar`)
-const listadoEditar = document.getElementById(`tablaDeProdEditar`)
-const nombreDeProducto = document.getElementById(`nombre`)
-const precioDeProducto = document.getElementById(`precio`)
-const descripcionDeProducto = document.getElementById(`descripcion`)
-const añadirBoton = document.getElementById(`enviarproducto`)
-const formulario = document.getElementById(`formularioproducto`)
-const tbodylistado = document.getElementById(`bodytexto`)
-const tbodylistadoEliminar = document.getElementById(`bodytextoEliminar`)
-const tbodylistadoEditar = document.getElementById(`bodytextoEditar`)
-const formularioEditar = document.getElementById(`formularioEditar`)
-const urlImagen = document.getElementById(`urlImagen`)
-const nombreEditar = document.getElementById(`nombreEditar`)
-const precioEditar = document.getElementById(`precioEditar`)
-const descripcionEditar = document.getElementById(`descripcionEditar`)
+const listado = document.getElementById(`tablaDeProd`);
+const listadoEliminar = document.getElementById(`tablaDeProdEliminar`);
+const listadoEditar = document.getElementById(`tablaDeProdEditar`);
+const nombreDeProducto = document.getElementById(`nombre`);
+const precioDeProducto = document.getElementById(`precio`);
+const descripcionDeProducto = document.getElementById(`descripcion`);
+const añadirBoton = document.getElementById(`enviarproducto`);
+const formulario = document.getElementById(`formularioproducto`);
+const tbodylistado = document.getElementById(`bodytexto`);
+const tbodylistadoEliminar = document.getElementById(`bodytextoEliminar`);
+const tbodylistadoEditar = document.getElementById(`bodytextoEditar`);
+const formularioEditar = document.getElementById(`formularioEditar`);
+const urlImagen = document.getElementById(`urlImagen`);
+const nombreEditar = document.getElementById(`nombreEditar`);
+const precioEditar = document.getElementById(`precioEditar`);
+const descripcionEditar = document.getElementById(`descripcionEditar`);
 
-
-
- 
 //FUNCION AÑADIR
 añadirBoton.addEventListener(`click`, (e) => {
   e.preventDefault();
-  
-  const nombre = nombreDeProducto.value
-  const precio = precioDeProducto.value
-  const descripcion = descripcionDeProducto.value
-  const imagen = urlImagen.value
+
+  const nombre = nombreDeProducto.value;
+  const precio = precioDeProducto.value;
+  const descripcion = descripcionDeProducto.value;
+  const imagen = urlImagen.value;
   const codigo = uuidv4();
 
-  
-  
-    //  VALIDACIONES DE FUNCION AÑADIR:
-  if (nombre.trim() === "" || precio.trim() === "" || descripcion.trim() === "") {
-    alert('Por favor, compete todos los campos');
+  //  VALIDACIONES DE FUNCION AÑADIR:
+  if (
+    nombre.trim() === "" ||
+    precio.trim() === "" ||
+    descripcion.trim() === ""
+  ) {
+    alert("Por favor, compete todos los campos");
     e.preventDefault();
     return;
   }
   if (nombre.length < 3 || descripcion.length > 50) {
-    alert('Nombre: debe tener mas de 3 caracteres');
+    alert("Nombre: debe tener mas de 3 caracteres");
     e.preventDefault();
     return;
   }
   if (!/^\d+(\.\d+)?$/.test(precio)) {
-    alert('Precio solo adminte caracteres numericos');
+    alert("Precio solo adminte caracteres numericos");
     e.preventDefault();
     return;
   }
   if (descripcion.length < 15 || descripcion.length > 100) {
-    alert('Descripcion: debe tener un minimo de 20 caracteres');
+    alert("Descripcion: debe tener un minimo de 20 caracteres");
     e.preventDefault();
     return;
   }
-    // FIN DE VALIDACION
+  // FIN DE VALIDACION
 
-  const producto = { codigo, nombre, precio, descripcion , imagen};
+  const producto = { codigo, nombre, precio, descripcion, imagen };
   productos.push(producto);
   console.log(productos);
   localStorage.setItem(`productos`, JSON.stringify(productos));
 
   const Toast = Swal.mixin({
     toast: true,
-    position: 'top-end',
+    position: "top-end",
     showConfirmButton: false,
     timer: 3000,
     timerProgressBar: true,
     didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-  })
-  
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
   Toast.fire({
-    icon: 'success',
-    title: 'El Producto se agrego Correctamente'
-  })
-  
+    icon: "success",
+    title: "El Producto se agrego Correctamente",
+  });
+
   mostrarProd();
   mostrarProdEnEliminar();
   mostrarProdEnEditar();
@@ -85,7 +84,7 @@ añadirBoton.addEventListener(`click`, (e) => {
 
 //FUNCION MOSTRAR
 function mostrarProd() {
-  listado.querySelector("tbody").innerHTML = ""
+  listado.querySelector("tbody").innerHTML = "";
 
   productos.forEach((producto) => {
     const tr = document.createElement(`tr`);
@@ -95,12 +94,11 @@ function mostrarProd() {
     <td>${producto.precio}</td>
     <td>${producto.descripcion}</td>`;
     tbodylistado.appendChild(tr);
-
   });
 }
 
 function mostrarProdEnEliminar() {
-  listadoEliminar.querySelector("tbody").innerHTML = ""
+  listadoEliminar.querySelector("tbody").innerHTML = "";
 
   productos.forEach((producto) => {
     const tr = document.createElement(`tr`);
@@ -115,21 +113,17 @@ function mostrarProdEnEliminar() {
   </svg>Eliminar</button></td>`;
 
     tbodylistadoEliminar.appendChild(tr);
-
   });
 }
-
 
 //CODIGO RANDOM
 function uuidv4() {
-  return 'xxxxxx'.replace(/[x]/g, function (c) {
-    const r = Math.random() * 9 | 0;
-    const v = c == 'x' ? r : (r & 0x3 | 0x8);
+  return "xxxxxx".replace(/[x]/g, function (c) {
+    const r = (Math.random() * 9) | 0;
+    const v = c == "x" ? r : (r & 0x3) | 0x8;
     return v.toString(+16);
   });
-
 }
-
 
 //FUNCION ELIMINAR
 //FUNCION ELIMINAR
@@ -139,35 +133,38 @@ listadoEliminar.addEventListener("click", (e) => {
     const index = productos.findIndex((producto) => producto.codigo === id);
     if (index !== -1) {
       Swal.fire({
-        title: '¿Estás seguro de eliminar este producto?',
+        title: "¿Estás seguro de eliminar este producto?",
         text: "No podrás revertir esto",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, eliminar',
-        cancelButtonText: 'Cancelar'
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar",
       }).then((result) => {
         if (result.isConfirmed) {
           productos.splice(index, 1);
-          const productosLocalStorage = JSON.parse(localStorage.getItem("productos"));
-          const productosActualizados = productosLocalStorage.filter((producto) => producto.codigo !== id);
-          localStorage.setItem("productos", JSON.stringify(productosActualizados));
+          const productosLocalStorage = JSON.parse(
+            localStorage.getItem("productos")
+          );
+          const productosActualizados = productosLocalStorage.filter(
+            (producto) => producto.codigo !== id
+          );
+          localStorage.setItem(
+            "productos",
+            JSON.stringify(productosActualizados)
+          );
 
           mostrarProd();
           mostrarProdEnEliminar();
           mostrarProdEnEditar();
 
-          Swal.fire(
-            '¡Eliminado!',
-            'El producto ha sido eliminado.',
-            'success'
-          );
+          Swal.fire("¡Eliminado!", "El producto ha sido eliminado.", "success");
         } else {
           Swal.fire(
-            'Eliminación cancelada',
-            'El producto no ha sido eliminado.',
-            'info'
+            "Eliminación cancelada",
+            "El producto no ha sido eliminado.",
+            "info"
           );
         }
       });
@@ -175,10 +172,9 @@ listadoEliminar.addEventListener("click", (e) => {
   }
 });
 
-
 //Muestra en Editar
 function mostrarProdEnEditar() {
-  listadoEditar.querySelector("tbody").innerHTML = ""
+  listadoEditar.querySelector("tbody").innerHTML = "";
 
   productos.forEach((producto) => {
     const tr = document.createElement(`tr`);
@@ -193,16 +189,14 @@ function mostrarProdEnEditar() {
   </svg>Editar</button></td>`;
 
     tbodylistadoEditar.appendChild(tr);
-
   });
 }
 
-const editarproductoboton = document.getElementById(`editarproductoboton`)
+const editarproductoboton = document.getElementById(`editarproductoboton`);
 
 //EDITAR PRODUCTO
 
 listadoEditar.addEventListener("click", (e) => {
-
   const id = e.target.dataset.id;
   const producto = productos.find((producto) => producto.codigo === id);
   let index = productos.findIndex((producto) => producto.codigo === id);
@@ -210,67 +204,66 @@ listadoEditar.addEventListener("click", (e) => {
     document.getElementById("nombreEditar").value = producto.nombre; // Seteamos el valor del input nombre
     document.getElementById("precioEditar").value = producto.precio; // Seteamos el valor del input precio
     document.getElementById("descripcionEditar").value = producto.descripcion; // Seteamos el valor del input descripcion
-    document.getElementById("urlimagenEditar").value = producto.imagen
+    document.getElementById("urlimagenEditar").value = producto.imagen;
     listadoEditar.dataset.editId = id; // Seteamos el id del producto a editar
     editarproductoboton.addEventListener("click", (e) => {
-      
-      const nuevoNombre = nombreEditar.value
-      const nuevoPrecio = precioEditar.value
-      const nuevaDescripcion = descripcionEditar.value
-      const nuevaImagen = urlimagenEditar.value
-
+      const nuevoNombre = nombreEditar.value;
+      const nuevoPrecio = precioEditar.value;
+      const nuevaDescripcion = descripcionEditar.value;
+      const nuevaImagen = urlimagenEditar.value;
 
       //  VALIDACIONES DE FUNCION AÑADIR:
-  if (nuevoNombre.trim() === "" || nuevoPrecio.trim() === "" || nuevaDescripcion.trim() === "") {
-    alert('Por favor, compete todos los campos');
-    e.preventDefault();
-    return;
-  }
-  if (nuevoNombre.length < 3 || nuevaDescripcion.length > 50) {
-    alert('Nombre: debe tener mas de 3 caracteres');
-    e.preventDefault();
-    return;
-  }
-  if (!/^\d+(\.\d+)?$/.test(nuevoPrecio)) {
-    alert('Precio solo adminte caracteres numericos');
-    e.preventDefault();
-    return;
-  }
-  if (nuevaDescripcion.length < 15 || nuevaDescripcion.length > 100) {
-    alert('Descripcion: debe tener un minimo de 20 caracteres');
-    e.preventDefault();
-    return;
-  }
+      if (
+        nuevoNombre.trim() === "" ||
+        nuevoPrecio.trim() === "" ||
+        nuevaDescripcion.trim() === ""
+      ) {
+        alert("Por favor, compete todos los campos");
+        e.preventDefault();
+        return;
+      }
+      if (nuevoNombre.length < 3 || nuevaDescripcion.length > 50) {
+        alert("Nombre: debe tener mas de 3 caracteres");
+        e.preventDefault();
+        return;
+      }
+      if (!/^\d+(\.\d+)?$/.test(nuevoPrecio)) {
+        alert("Precio solo adminte caracteres numericos");
+        e.preventDefault();
+        return;
+      }
+      if (nuevaDescripcion.length < 15 || nuevaDescripcion.length > 100) {
+        alert("Descripcion: debe tener un minimo de 20 caracteres");
+        e.preventDefault();
+        return;
+      }
       productos[index].nombre = nuevoNombre;
       productos[index].descripcion = nuevaDescripcion;
       productos[index].precio = nuevoPrecio;
       productos[index].imagen = nuevaImagen;
       localStorage.setItem("productos", JSON.stringify(productos));
-      
 
       const Toast = Swal.mixin({
         toast: true,
-        position: 'top-end',
+        position: "top-end",
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
         didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-      })
-      
-      Toast.fire({
-        icon: 'success',
-        title: 'El producto se modifico Correctamente'
-      })
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
 
-      
+      Toast.fire({
+        icon: "success",
+        title: "El producto se modifico Correctamente",
+      });
+
       mostrarProd();
       mostrarProdEnEliminar();
       mostrarProdEnEditar();
       formularioEditar.reset();
-    })
+    });
   }
-}
-);
+});

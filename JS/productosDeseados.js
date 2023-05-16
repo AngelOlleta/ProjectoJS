@@ -1,11 +1,11 @@
 const productoFavoritoLS = JSON.parse(localStorage.getItem("favoritos")) || [];
-const card = document.querySelector(".card-producto");
+const cards = document.querySelector(".card-producto");
 // let favsProductos = JSON.parse(localStorage.getItem("favoritos")) || [];
 const contFav = document.querySelector(".contFav");
 contFav.innerHTML = productoFavoritoLS.length;
 
 productoFavoritoLS.map((info) => {
-  card.innerHTML += `
+  cards.innerHTML += `
   <div class="col-md-6 col-lg-3">
     <div class="card h-50">
       <a href="./infoProducto.html">
