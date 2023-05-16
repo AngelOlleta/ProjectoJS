@@ -1,3 +1,8 @@
+const adminLog = JSON.parse(localStorage.getItem("user")) || false;
+if (!adminLog) {
+  alert("solo accede usuario admin");
+  window.location.href = "index.html";
+}
 let productos = [];
 
 const listado = document.getElementById(`tablaDeProd`);
