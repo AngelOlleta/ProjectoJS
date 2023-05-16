@@ -17,7 +17,7 @@
   <body>
     <header>
       <div
-        class="container-fluid text-center" 
+        class="container-fluid text-center"
         style="background-color: rgb(0, 0, 0); color: white"
       >
         <p>Envio Gratis a patir de $30.000</p>
@@ -46,7 +46,7 @@
             style="--bs-scroll-height: 100px"
           >
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="./about.html">
+              <a class="nav-link" aria-current="page" href="./error404.html">
                 Mujer
               </a>
             </li>
@@ -83,9 +83,14 @@
             <li class="nav-item">
               <a class="nav-link" href="./about.html">Acerca de nosotros</a>
             </li>
+            <li class="nav-item d-none" id="linkAdmin">
+              <a class="nav-link" href="./administracion.html">
+                Administracion
+              </a>
+            </li>
           </ul>
           <form class="d-flex justify-content-end p-2" role="search">
-            <a data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a data-bs-toggle="modal" data-bs-target="#busqueda">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
@@ -103,15 +108,15 @@
             <!-- Modal -->
             <div
               class="modal fade"
-              id="exampleModal"
+              id="busqueda"
               tabindex="-1"
-              aria-labelledby="exampleModalLabel"
+              aria-labelledby="busquedaLabel"
               aria-hidden="true"
             >
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Busqueda</h5>
+                    <h5 class="modal-title" id="busquedaLabel">Busqueda</h5>
                     <button
                       type="button"
                       class="btn-close"
@@ -120,26 +125,49 @@
                     ></button>
                   </div>
                   <div class="modal-body">
-                    <input type="text" maxlength="50" minlength="3" />
+                    <input
+                      type="text"
+                      id="inputSearch"
+                      placeholder="¿Qué deseas buscar?"
+                    />
                   </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Buscar
-                    </button>
-                  </div>
+                  <ul id="box-search">
+                    <li>
+                      <a href="error404.html"><i class=""></i>Remeras</a>
+                    </li>
+                    <li>
+                      <a href="error404.html"><i class=""></i>Camisetas</a>
+                    </li>
+                    <li>
+                      <a href="error404.html"><i class=""></i>Zapatillas</a>
+                    </li>
+                    <li>
+                      <a href="error404.html"><i class=""></i>Medias</a>
+                    </li>
+                    <li>
+                      <a href="error404.html"><i class=""></i>Conjuntos</a>
+                    </li>
+                    <li>
+                      <a href="error404.html"><i class=""></i>Botines</a>
+                    </li>
+                    <li>
+                      <a href="error404.html"><i class=""></i>Especiales</a>
+                    </li>
+                    <li>
+                      <a href="error404.html"><i class=""></i>Calzados</a>
+                    </li>
+                  </ul>
+                  <div id="ocultarBusqueda"></div>
+                  <div class="modal-footer"></div>
                 </div>
               </div>
             </div>
 
-            <a data-bs-toggle="modal" data-bs-target="#exampleModal2">
+            <a id="btnLogueo" cla href="./login.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
+                width="35"
+                height="35"
                 fill="secundaryColor"
                 class="bi bi-person p-1"
                 viewBox="0 0 16 16"
@@ -150,129 +178,32 @@
               </svg>
             </a>
 
-            <div
-              class="modal fade"
-              id="exampleModal2"
-              tabindex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">
-                      DISFRUTÁ DE LOS BENEFICIOS DEL FLEXCLUB AL INICIAR SESIÓN
-                    </h1>
-
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body">
-                    <p>
-                      Conseguí cupones de descuento, productos exclusivos y
-                      cuando sos parte flexClub
-                    </p>
-                    <form>
-                      <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label"
-                          >Inicia Sesion:</label
-                        >
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="floatingCorreoElectronico1"
-                          maxlength="50"
-                          required
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label"
-                          >Contraseña:</label
-                        >
-                        <input
-                          type="password"
-                          class="form-control"
-                          id="floatingCorreoElectronico"
-                          maxlength="50"
-                          required
-                        />
-                      </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-dark"
-                      data-bs-dismiss="modal"
-                    >
-                      Ingresar
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a href="./error404.html"
-              ><svg
+            <a class="d-none" id="btnDeslogueo">
+              <svg
+                type="button"
                 xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="25"
+                width="35"
+                height="35"
                 fill="secundaryColor"
-                class="bi bi-bag p-1"
+                class="bi bi-box-arrow-left"
                 viewBox="0 0 16 16"
               >
                 <path
-                  d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"
+                  fill-rule="evenodd"
+                  d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"
                 />
               </svg>
             </a>
 
-            <div
-              class="modal fade"
-              id="favorito"
-              tabindex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Favorito</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body" >
-                    <table id="listaProductos" class="table">
-                      <thead>
-                          <tr>
-                              <th>Imagen</th>
-                              <th>Nombre</th>
-                              <th>Precio</th>
-                              <th></th>
-                          </tr>
-                      </thead>
-                      <tbody></tbody>
-                  </table>
-                  </div>
-                  <div class="modal-footer">
-                    
-                    <a href="#" id="vaciarFavorito" class="btn btn-dark btn-block">Vaciar Favoritos</a>
-                    <a href="#" id="procesar-pedido" class="btn btn-primary btn-block">Comprar</a>
-                  
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <a href="./productosDeseados.html" class="position-relative">
-              <svg
+            <a
+              href="./productosDeseados.html"
+              class="position-relative"
+              id="contFav"
+              ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="35"
                 height="35"
@@ -289,47 +220,15 @@
                 >0</span
               >
             </a>
-            
           </form>
         </div>
       </div>
     </nav>
 
-
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-              <img src="" class="nav-link dropdown-toggle img-fluid" height="70px"
-                  width="70px" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-                  aria-expanded="false"></img>
-              <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
-                  <table id="lista-carrito" class="table">
-                      <thead>
-                          <tr>
-                              <th>Imagen</th>
-                              <th>Nombre</th>
-                              <th>Precio</th>
-                              <th></th>
-                          </tr>
-                      </thead>
-                      <tbody></tbody>
-                  </table>
-
-                  <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
-                  <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
-                      Compra</a>
-              </div>
-          </li>
-      </ul>
-  </div>
-
-
     <!-- productosDeseados -->
-    <div class="d-flex row  g-4 m-0 card-producto">
+    <div class="d-flex row g-4 m-0 card-producto">
       <h1 class="d-flex justify-content-center">Productos Deseados</h1>
     </div>
-
-    
 
     <!-- Footer -->
     <div class="b-example-divider"></div>
@@ -446,7 +345,9 @@
                   placeholder="Email address"
                   required
                 />
-                <button class="btn btn-dark" type="button"><a class="nav-link active" href="registro.html"> Subscribe</a></button>
+                <button class="btn btn-dark" id="btnRegistro" type="button">
+                  <a class="nav-link active" href="registro.html"> Subscribe</a>
+                </button>
               </div>
             </form>
           </div>
@@ -477,7 +378,7 @@
           </ul>
         </div>
       </footer>
-    </div> 
+    </div>
     <!-- JS bootstrap -->
 
     <script
@@ -485,6 +386,7 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+
     <script src="./JS/productosDeseados.js"></script>
     <script
       src="https://kit.fontawesome.com/cfd100b802.js"
