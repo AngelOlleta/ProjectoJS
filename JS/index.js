@@ -55,8 +55,10 @@ if (usuarioLogueado) {
 // cuando se pulsa en "agregar a favoritos"
 // let totalFavs = JSON.parse(localStorage.getItem("favoritos")) || [];
 let favsProductos = JSON.parse(localStorage.getItem("favoritos")) || [];
-const contFav = document.querySelector(".contFav");
-contFav.innerHTML = favsProductos.length;
+const countFav = document.querySelector(".contFav");
+if (usuarioLogueado) {
+  countFav.innerHTML = favsProductos.length;
+}
 
 const productos = [
   {
@@ -142,7 +144,7 @@ const agregarFavoritos = (id) => {
     swal("¡Genial! ", "¡Se agrego a favoritos! ", "success");
   }
   localStorage.setItem("favoritos", JSON.stringify(favsProductos));
-  contFav.innerHTML = favsProductos.length;
+  countFav.innerHTML = favsProductos.length;
 
   // console.log(favsProductos);
 };
