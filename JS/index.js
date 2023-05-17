@@ -58,6 +58,7 @@ const productos = [
     imagen: "./Imagenes/camiseta.jpg",
     nombre: "Camiseta Femenina",
     precio: "$48000",
+    href: "../infoProducto.html"
   },
   {
     id: 2,
@@ -65,6 +66,7 @@ const productos = [
       "https://images.pexels.com/photos/1102874/pexels-photo-1102874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     nombre: "Mochila Adidas",
     precio: "$35.000",
+    href: "../error404.html"
   },
   {
     id: 3,
@@ -72,6 +74,7 @@ const productos = [
       "https://images.pexels.com/photos/13439547/pexels-photo-13439547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     nombre: "Zapatillas Adidas",
     precio: "$50.000",
+    href: "../error404.html"
   },
   {
     id: 4,
@@ -79,6 +82,7 @@ const productos = [
       "https://images.pexels.com/photos/11220643/pexels-photo-11220643.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     nombre: "Zapatillas Urbanas",
     precio: "$45.000",
+    href: "../error404.html"
   },
 ];
 const productoAgregadoLS = JSON.parse(localStorage.getItem("productos")) || [];
@@ -88,7 +92,7 @@ productos.map((info) => {
   card.innerHTML += `
   <div class="col-md-6 col-lg-3">
     <div class="card h-50">
-      <a href="./infoProducto.html">
+      <a href="${info.href}">
         <img
           src="${info.imagen}"
           class="card-img-top "
@@ -125,7 +129,7 @@ productoAgregadoLS.map((info) => {
   card.innerHTML += `
   <div class="col-md-6 col-lg-3">
     <div class="card h-50">
-      <a href="./infoProducto.html">
+      <a href="../error404.html">
         <img
           src="${info.imagen}"
           class="card-img-top "
@@ -184,24 +188,4 @@ const agregarFavoritos = (id) => {
   // console.log(favsProductos);
 };
 
-// const botonAgregar = document.querySelector(".botonAgregar");
-// card.addEventListener("click", (e) => {
-//   console.log(e.target);
-//   // const nombre = document.querySelector("#productoNombre").textContent;
-//   // const precio = document.getElementById("precioProducto").textContent;
-//   // const imagen = document.getElementById("imagenProducto").src;
-//   // const favorito = document.getElementById("productosFavoritos");
-//   // const productoFavoritoLS =
-//   //   JSON.parse(localStorage.getItem("favoritos")) || [];
-//   // const productoAgregado = productoFavoritoLS.find(
-//   //   (favorito) => favorito.id === productos.id
-//   // );
-//   // if (productoAgregado) {
-//   //   return alert("el producto ya fue marcado como favorito ");
-//   // }
-//   // productoFavoritoLS.push({ info });
 
-//   // localStorage.setItem("favoritos", JSON.stringify(productoFavoritoLS));
-//   // // alert("se agrego el producto a favoritos");
-//   // swal("¡Genial! ", "¡Se agrego a favoritos! ", "success");
-// });

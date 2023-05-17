@@ -27,7 +27,9 @@ formRegistro.addEventListener("submit", (e) => {
   });
   localStorage.setItem("users", JSON.stringify(Users));
   Swal.fire("Registro existoso! ");
-  window.location.href = "login.html";
+  setTimeout(function () {
+    window.location.href = "login.html";
+  }, 3000); 
 });
 
 function validarTextoSinNumeros(input) {

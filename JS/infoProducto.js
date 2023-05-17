@@ -42,8 +42,8 @@ if (usuarioLogueado) {
     btnDeslogueo.addEventListener("click", cerrarSesion);
   }
 }
-const adminLog = JSON.parse(localStorage.getItem("user")) || false;
-if (!adminLog) {
-  alert("solo accede usuario admin");
-  window.location.href = "index.html";
-}
+// const adminLog = JSON.parse(localStorage.getItem("user")) || false;
+// if (!adminLog) {
+//   alert("solo accede usuario admin");
+//   window.location.href = "index.html";
+// }
