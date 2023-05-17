@@ -93,7 +93,7 @@ const eliminarFavorito = (id) => {
 
   if (isfav) {
     favsProductos = favsProductos.filter((elimino) => elimino.id !== id);
-    swal("¡Se elimino de favoritos! ", "info");
+    swal("Oh no!", "Se elimino de favoritos!", "info");
   }
   localStorage.setItem("favoritos", JSON.stringify(favsProductos));
   contFav.innerHTML = productoFavoritoLS.length;
