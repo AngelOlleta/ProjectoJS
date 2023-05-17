@@ -13,16 +13,13 @@
 }
 
 #box-search li a {
+  text-decoration: none;
   display: block;
   width: 498px;
-  color: #777777;
+  color: #000000;
   padding: 12px 20px;
 }
 
 #box-search li a:hover {
   background: #f3f3f3;
-}
-
-#box-search li a i {
-  margin-right: 10px;
 }
