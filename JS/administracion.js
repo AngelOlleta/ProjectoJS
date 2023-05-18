@@ -21,18 +21,12 @@ const cerrarSesion = () => {
 };
 
 if (usuarioLogueado) {
-  if (
-user.name
- === 
-userAdmin.name
-) {
+  if (user.name === userAdmin.name) {
     linkAdmin.className = "nav-item";
     btnRegistro.className = "d-none";
     btnDeslogueo.className = "";
     contFav.className = "d-none";
-    btnLogueo.innerHTML = 
-user.name
-;
+    btnLogueo.innerHTML = user.name;
     btnLogueo.className = "px-3 nav-link active ";
     btnLogueo.removeAttribute("href");
     btnDeslogueo.addEventListener("click", cerrarSesion);
@@ -54,6 +48,7 @@ if (!adminLog) {
 
 const listado = document.getElementById(`tablaDeProd`);
 const listadoEliminar = document.getElementById(`tablaDeProdEliminar`);
+const listadoUsuariosEliminar = document.getElementById("tablaDeUsuarios");
 const listadoEditar = document.getElementById(`tablaDeProdEditar`);
 const nombreDeProducto = document.getElementById(`nombre`);
 const precioDeProducto = document.getElementById(`precio`);
@@ -68,7 +63,26 @@ const urlImagen = document.getElementById(`urlImagen`);
 const nombreEditar = document.getElementById(`nombreEditar`);
 const precioEditar = document.getElementById(`precioEditar`);
 const descripcionEditar = document.getElementById(`descripcionEditar`);
+const usersActualizado = JSON.parse(localStorage.getItem("users")) || [];
+const bodyUsuariosEliminar = document.getElementById("bodyUsuariosEliminar");
+console.log(usersActualizado);
 
+usersActualizado.map((usuario) => {
+  const tr = document.createElement(`tr`);
+  tr.innerHTML = `
+  <td>${usuario.email}</td>
+  <td>${usuario.name}</td>
+  <td>${usuario.lastName}</td>
+  <td>${usuario.password}</td>
+  <td class="areaEliminar"><button id="eliminarProdBtn" type="button" class="btn btn-outline-danger eliminar" data-id="${usuario.codigo}"><svg xmlns="
+http://www.w3.org/2000/svg
+" width="20" height="20" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16" id="botoneliminari">
+  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+</svg>Eliminar</button></td>`;
+
+  bodyUsuariosEliminar.appendChild(tr);
+});
 productosLocalStorage.forEach((producto) => {
   const tr = document.createElement(`tr`);
   tr.innerHTML = `
@@ -148,9 +162,7 @@ añadirBoton.addEventListener(`click`, (e) => {
     imagen.trim() === "" ||
     descripcion.trim() === ""
   ) {
-    
-Swal.fire
-({
+    Swal.fire({
       icon: "error",
       title: "Por favor, completa todos los campos",
     });
@@ -158,9 +170,7 @@ Swal.fire
     return;
   }
   if (nombre.length < 3 || nombre.length > 30) {
-    
-Swal.fire
-({
+    Swal.fire({
       icon: "error",
       title: "Nombre: debe tener más de 3 caracteres",
     });
@@ -168,9 +178,7 @@ Swal.fire
     return;
   }
   if (!/^\d+(\.\d+)?$/.test(precio)) {
-    
-Swal.fire
-({
+    Swal.fire({
       icon: "error",
       title: "Precio solo admite caracteres numéricos",
     });
@@ -179,18 +187,14 @@ Swal.fire
   }
   const urlRegex = /^(http|https):\/\/[^ "]+$/;
   if (!urlRegex.test(imagen)) {
-    
-Swal.fire
-({
+    Swal.fire({
       icon: "error",
       title: "La imagen no es una URL válida",
     });
     return;
   }
   if (descripcion.length < 15 || descripcion.length > 100) {
-    
-Swal.fire
-({
+    Swal.fire({
       icon: "error",
       title: "Descripción: debe tener un mínimo de 15 caracteres",
     });
@@ -213,9 +217,8 @@ Swal.fire
       toast.addEventListener("mouseleave", Swal.resumeTimer);
     },
   });
-  
-Toast.fire
-({
+
+  Toast.fire({
     icon: "success",
     title: "El Producto se agrego Correctamente",
   });
@@ -224,7 +227,25 @@ Toast.fire
   mostrarProdEnEditar();
   formulario.reset();
 });
+function mostrarUsuarios() {
+  listadoUsuariosEliminar.querySelector("tbody").innerHTML = "";
+  Users.forEach((usuario) => {
+    const tr = document.createElement(`tr`);
+    tr.innerHTML = `
+    <td>${usuario.email}</td>
+    <td>${usuario.name}</td>
+    <td>${usuario.lastName}</td>
+    <td>${usuario.password}</td>
+    <td class="areaEliminar"><button id="eliminarProdBtn" type="button" class="btn btn-outline-danger eliminar" data-id="${usuario.codigo}"><svg xmlns="
+http://www.w3.org/2000/svg
+" width="20" height="20" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16" id="botoneliminari">
+    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+  </svg>Eliminar</button></td>`;
 
+    bodyUsuariosEliminar.appendChild(tr);
+  });
+}
 function mostrarProdEnEliminar() {
   listadoEliminar.querySelector("tbody").innerHTML = "";
   productosLocalStorage.forEach((producto) => {
@@ -248,16 +269,12 @@ http://www.w3.org/2000/svg
 //FUNCION ELIMINAR
 listadoEliminar.addEventListener("click", (e) => {
   if (e.target.classList.contains("eliminar")) {
-    const id = 
-e.target.dataset.id
-;
+    const id = e.target.dataset.id;
     const index = productosLocalStorage.findIndex(
       (producto) => producto.codigo === id
     );
     if (index !== -1) {
-      
-Swal.fire
-({
+      Swal.fire({
         title: "¿Estás seguro de eliminar este producto?",
         text: "No podrás revertir esto",
         icon: "warning",
@@ -280,13 +297,10 @@ Swal.fire
           mostrarProd();
           mostrarProdEnEliminar();
           mostrarProdEnEditar();
-          
-Swal.fire
-("¡Eliminado!", "El producto ha sido eliminado.", "success");
+
+          Swal.fire("¡Eliminado!", "El producto ha sido eliminado.", "success");
         } else {
-          
-Swal.fire
-(
+          Swal.fire(
             "Eliminación cancelada",
             "El producto no ha sido eliminado.",
             "info"
@@ -342,9 +356,7 @@ editarproductoboton.addEventListener("click", (e) => {
       nuevaImagen.trim() === "" ||
       nuevaDescripcion.trim() === ""
     ) {
-      
-Swal.fire
-({
+      Swal.fire({
         icon: "error",
         title: "Por favor, completa todos los campos",
       });
@@ -352,9 +364,7 @@ Swal.fire
       return;
     }
     if (nuevoNombre.length < 3 || nuevoNombre.length > 30) {
-      
-Swal.fire
-({
+      Swal.fire({
         icon: "error",
         title: "Nombre: debe tener más de 3 caracteres",
       });
@@ -362,9 +372,7 @@ Swal.fire
       return;
     }
     if (!/^\d+(\.\d+)?$/.test(nuevoPrecio)) {
-      
-Swal.fire
-({
+      Swal.fire({
         icon: "error",
         title: "Precio solo admite caracteres numéricos",
       });
@@ -373,18 +381,14 @@ Swal.fire
     }
     const urlRegex = /^(http|https):\/\/[^ "]+$/;
     if (!urlRegex.test(nuevaImagen)) {
-      
-Swal.fire
-({
+      Swal.fire({
         icon: "error",
         title: "La imagen no es una URL válida",
       });
       return;
     }
     if (nuevaDescripcion.length < 15 || nuevaDescripcion.length > 50) {
-      
-Swal.fire
-({
+      Swal.fire({
         icon: "error",
         title: "Descripción: debe tener un mínimo de 15 caracteres",
       });
@@ -404,9 +408,8 @@ Swal.fire
 
     // Actualizar el producto en el Local Storage
     localStorage.setItem("productos", JSON.stringify(productosLocalStorage));
-    
-Swal.fire
-({
+
+    Swal.fire({
       icon: "success",
       title: "Producto modificado",
     });
@@ -419,9 +422,7 @@ Swal.fire
 
 // Controlador de evento para el elemento listadoEditar
 listadoEditar.addEventListener("click", (e) => {
-  const id = 
-e.target.dataset.id
-;
+  const id = e.target.dataset.id;
   const producto = productosLocalStorage.find(
     (producto) => producto.codigo === id
   );
@@ -436,9 +437,7 @@ e.target.dataset.id
     document.getElementById("urlimagenEditar").value = producto.imagen;
     listadoEditar.dataset.editId = id; // Seteamos el id del producto a editar
   }
-}); 
-
-
+});
 
 // let productosLocalStorage = JSON.parse(localStorage.getItem("productos"));
 // let userAdmin = {
