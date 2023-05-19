@@ -1,0 +1,25 @@
+/*Buscador*/
+
+#box-search {
+  position: fixed;
+  top: 165px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 498px;
+  background: #fff;
+  z-index: 8;
+  overflow: hidden;
+  display: none;
+}
+
+#box-search li a {
+  text-decoration: none;
+  display: block;
+  width: 498px;
+  color: #000000;
+  padding: 12px 20px;
+}
+
+#box-search li a:hover {
+  background: #f3f3f3;
+}

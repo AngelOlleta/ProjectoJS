@@ -1,0 +1,65 @@
+.video-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: -1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.content-container {
+  padding: 50px;
+}
+
+.card {
+  margin: 3px;
+  width: 200px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  box-shadow: -1rem 0 3rem rgba(46, 33, 33, 0.801);
+  transition: all 0.3s ease-in;
+  left: 0px;
+}
+
+.card:not(:first-child) {
+  margin-left: -50px;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+  transition: 0.5s ease-out;
+}
+
+
+
+.card-body h3 {
+  color: rgb(0, 0, 0);
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    padding: 20px;
+  }
+  .card {
+    width: 100%;
+  }
+}
