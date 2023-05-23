@@ -99,6 +99,6 @@ const eliminarFavorito = (id) => {
   contFav.innerHTML = productoFavoritoLS.length;
   setTimeout(() => {
     window.location.reload();
-  });
+  }, 3000);
   // console.log(favsProductos);
 };
