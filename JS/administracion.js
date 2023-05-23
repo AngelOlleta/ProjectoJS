@@ -63,26 +63,26 @@ const urlImagen = document.getElementById(`urlImagen`);
 const nombreEditar = document.getElementById(`nombreEditar`);
 const precioEditar = document.getElementById(`precioEditar`);
 const descripcionEditar = document.getElementById(`descripcionEditar`);
-const usersActualizado = JSON.parse(localStorage.getItem("users")) || [];
-const bodyUsuariosEliminar = document.getElementById("bodyUsuariosEliminar");
-console.log(usersActualizado);
+let usersActualizado = JSON.parse(localStorage.getItem("users")) || [];
+const bodyUsuariosEliminar = document.querySelector(".bodyUsuariosEliminar");
 
 usersActualizado.map((usuario) => {
-  const tr = document.createElement(`tr`);
-  tr.innerHTML = `
+  bodyUsuariosEliminar.innerHTML += `
+  <tr>
   <td>${usuario.email}</td>
   <td>${usuario.name}</td>
   <td>${usuario.lastName}</td>
   <td>${usuario.password}</td>
-  <td class="areaEliminar"><button id="eliminarProdBtn" type="button" class="btn btn-outline-danger eliminar" data-id="${usuario.codigo}"><svg xmlns="
+  <td ><a onclick="eliminarUsuario('${usuario.email}')" type="submit" class="btn btn-outline-danger " ><svg xmlns="
 http://www.w3.org/2000/svg
 " width="20" height="20" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16" id="botoneliminari">
   <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
   <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-</svg>Eliminar</button></td>`;
-
-  bodyUsuariosEliminar.appendChild(tr);
+</svg>Eliminar</a>
+</td>
+</tr>`;
 });
+
 productosLocalStorage.forEach((producto) => {
   const tr = document.createElement(`tr`);
   tr.innerHTML = `
@@ -227,25 +227,41 @@ añadirBoton.addEventListener(`click`, (e) => {
   mostrarProdEnEditar();
   formulario.reset();
 });
-function mostrarUsuarios() {
-  listadoUsuariosEliminar.querySelector("tbody").innerHTML = "";
-  Users.forEach((usuario) => {
-    const tr = document.createElement(`tr`);
-    tr.innerHTML = `
-    <td>${usuario.email}</td>
-    <td>${usuario.name}</td>
-    <td>${usuario.lastName}</td>
-    <td>${usuario.password}</td>
-    <td class="areaEliminar"><button id="eliminarProdBtn" type="button" class="btn btn-outline-danger eliminar" data-id="${usuario.codigo}"><svg xmlns="
-http://www.w3.org/2000/svg
-" width="20" height="20" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16" id="botoneliminari">
-    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-  </svg>Eliminar</button></td>`;
 
-    bodyUsuariosEliminar.appendChild(tr);
-  });
-}
+const eliminarUsuario = (email) => {
+  const user = usersActualizado.find((user) => user.email === email);
+
+  if (user) {
+    Swal.fire({
+      title: "¿Estás seguro de eliminar este usuario?",
+      text: "No podrás revertir esto",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        usersActualizado = usersActualizado.filter(
+          (elimino) => elimino.email !== email
+        );
+        localStorage.setItem("users", JSON.stringify(usersActualizado));
+        Swal.fire("¡Eliminado!", "El usuario ha sido eliminado.", "success");
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      } else {
+        Swal.fire(
+          "Eliminación cancelada",
+          "El usuario no ha sido eliminado.",
+          "info"
+        );
+      }
+    });
+  }
+};
+
 function mostrarProdEnEliminar() {
   listadoEliminar.querySelector("tbody").innerHTML = "";
   productosLocalStorage.forEach((producto) => {

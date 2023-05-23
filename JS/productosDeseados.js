@@ -97,6 +97,8 @@ const eliminarFavorito = (id) => {
   }
   localStorage.setItem("favoritos", JSON.stringify(favsProductos));
   contFav.innerHTML = productoFavoritoLS.length;
-
+  setTimeout(() => {
+    window.location.reload();
+  });
   // console.log(favsProductos);
 };
